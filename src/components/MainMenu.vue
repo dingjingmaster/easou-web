@@ -1,7 +1,7 @@
 <template>
-  <el-menu class="i-main-menu" v-model="isCollapse" :collapse="isCollapse">
+  <el-menu class="i-main-menu" @select="selected_child" :collapse="isCollapse">
     <!-- 导航1 -- 开始 -->
-    <el-menu-item index="1" v-on:click="isCollapse = !isCollapse">
+    <el-menu-item index="1">
         <i class="el-icon-menu"></i>
         <span slot="title">菜单</span>
     </el-menu-item>
@@ -54,16 +54,13 @@
 <style>
   .i-main-menu {
     top: 84px;
+    height: calc(100vh - 80px - 260px);
     position: fixed;
-  }
-  .i-main-menu>el-menu-item{
-    height: 100%;
-    background-color: #8c0776;
+    min-height: 800px;
   }
   .i-main-menu:not(.el-menu--collapse) {
-    width: 200px;
-    height: 100%;
-    min-height: 400px;
+    width: 280px;
+    height: calc(100vh - 80px - 260px);
   }
 </style>
 
@@ -75,15 +72,14 @@ export default {
     }
   },
   methods: {
-    handleOpen (key, keyPath) {
-      alert(key)
-      if (key === 1) {
-        alert('ddd')
+    selected_child (index, indexPath) {
+      if (index === '1') {
+        // 第一个 —— 菜单按钮
+        this.isCollapse = !(this.isCollapse)
+      } else {
+        alert(index)
       }
-      console.log(key, keyPath)
-    },
-    handleClose (key, keyPath) {
-      console.log(key, keyPath)
+      // alert(index)
     }
   }
 }
