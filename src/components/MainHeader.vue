@@ -38,6 +38,7 @@ export default {
     height: 78px;
     min-width: 1200px;
     position: fixed;
+    background-color: #FFFFFF;
   }
   .i-main-title {
     width: 158px;

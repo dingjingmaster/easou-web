@@ -53,8 +53,8 @@
 
 <style>
   .i-main-menu {
-    top: 84px;
     height: calc(100vh - 80px - 260px);
+    margin-top: 78px;
     position: fixed;
     min-height: 800px;
   }

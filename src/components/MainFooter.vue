@@ -20,6 +20,6 @@ export default {
     position: fixed;
     clear: both;
     text-align: left;
-    background-color: #EBEDEF;
+    background-color: #FFFFFF;
   }
 </style>
