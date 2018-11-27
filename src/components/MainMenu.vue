@@ -77,9 +77,18 @@ export default {
         // 第一个 —— 菜单按钮
         this.isCollapse = !(this.isCollapse)
       } else {
-        alert(index)
+        switch (index) {
+          case '2-1':
+            alert(index)
+            break
+          case '2-2':
+            alert(index)
+            break
+        }
+        if (this.isCollapse === false) {
+          this.isCollapse = !(this.isCollapse)
+        }
       }
-      // alert(index)
     }
   }
 }
