@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="749d1492-7b02-43e2-b785-0fe7041ef49e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/MainMain.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainMain.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,7 +32,7 @@
           <entry key="js" value="39" />
           <entry key="json" value="6" />
           <entry key="less" value="1" />
-          <entry key="md" value="1" />
+          <entry key="md" value="2" />
           <entry key="png" value="1" />
           <entry key="vue" value="32" />
         </counts>
@@ -45,6 +44,7 @@
           <entry key="JSON" value="7" />
           <entry key="JavaScript" value="39" />
           <entry key="Less" value="1" />
+          <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Vue.js" value="32" />
         </counts>
@@ -61,6 +61,7 @@
           <entry key="js" value="246" />
           <entry key="json" value="16" />
           <entry key="less" value="50" />
+          <entry key="md" value="130" />
           <entry key="vue" value="4040" />
         </counts>
       </usages-collector>
@@ -70,6 +71,7 @@
           <entry key="JSON" value="133" />
           <entry key="JavaScript" value="246" />
           <entry key="Less" value="50" />
+          <entry key="Markdown" value="130" />
           <entry key="Vue.js" value="4040" />
         </counts>
       </usages-collector>
@@ -116,11 +118,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/MainMenu.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
               <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="304">
+                <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -176,6 +190,7 @@
         <option value="$PROJECT_DIR$/src/components/MainFooter.vue" />
         <option value="$PROJECT_DIR$/src/components/MainMain.vue" />
         <option value="$PROJECT_DIR$/src/components/MainMenu.vue" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -215,11 +230,6 @@
             <path>
               <item name="easou-web" type="b2602c69:ProjectViewProjectNode" />
               <item name="easou-web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="easou-web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="easou-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -280,12 +290,12 @@
       <workItem from="1543197343336" duration="7496000" />
       <workItem from="1543224541144" duration="606000" />
       <workItem from="1543225267777" duration="5149000" />
-      <workItem from="1543282124492" duration="28076000" />
+      <workItem from="1543282124492" duration="28722000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41327000" />
+    <option name="totallyTimeSpent" value="41973000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -298,6 +308,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="454" y="133" width="1824" height="828" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19596864" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -379,13 +390,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -528,6 +532,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="304">
+            <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
