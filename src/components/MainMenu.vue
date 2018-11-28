@@ -11,10 +11,9 @@
     <el-submenu index="2">
       <template slot="title">
         <i class="el-icon-location"></i>
-        <span>订展比统计</span>
+        <span>线上展示数据</span>
       </template>
-      <el-menu-item index="2-1">比例查询</el-menu-item>
-      <el-menu-item index="2-2">数量查询</el-menu-item>
+      <router-link to="/main_exhibit/"><el-menu-item index="2-1">订展比相关查询</el-menu-item></router-link>
     </el-submenu>
     <!-- 导航2 -- 结束 -->
     <!-- 导航3 -- 开始 -->
@@ -25,8 +24,8 @@
       </template>
       <el-menu-item-group index="3-1">
         <template slot="title">留存统计</template>
-        <el-menu-item index="3-1-1">留存量</el-menu-item>
-        <el-menu-item index="3-1-2">留存率</el-menu-item>
+        <router-link to="/main_retention_rate/"><el-menu-item index="3-1-1">留存量</el-menu-item></router-link>
+        <router-link to="/main_retention_rate/"><el-menu-item index="3-1-2">留存率</el-menu-item></router-link>
       </el-menu-item-group>
       <!-- -->
       <el-menu-item-group title="3-2">
@@ -43,8 +42,8 @@
         <i class="el-icon-location"></i>
         <span>用户类型统计</span>
       </template>
-      <el-menu-item index="4-1">用户类型数量</el-menu-item>
-      <el-menu-item index="4-2">用户类型占比</el-menu-item>
+      <router-link to="/main_user_type_rate/"><el-menu-item index="4-1">用户类型占比</el-menu-item></router-link>
+      <router-link to="/main_user_type_num/"><el-menu-item index="4-2">用户类型数量</el-menu-item></router-link>
     </el-submenu>
     <!-- 导航3 -- 结束 -->
     <!-- -->
@@ -53,10 +52,11 @@
 
 <style>
   .i-main-menu {
-    height: calc(100vh - 80px - 260px);
+    height: 100%;
     margin-top: 78px;
-    position: fixed;
     min-height: 800px;
+    position: fixed;
+    z-index: 998;
   }
   .i-main-menu:not(.el-menu--collapse) {
     width: 280px;
@@ -77,14 +77,6 @@ export default {
         // 第一个 —— 菜单按钮
         this.isCollapse = !(this.isCollapse)
       } else {
-        switch (index) {
-          case '2-1':
-            alert(index)
-            break
-          case '2-2':
-            alert(index)
-            break
-        }
         if (this.isCollapse === false) {
           this.isCollapse = !(this.isCollapse)
         }

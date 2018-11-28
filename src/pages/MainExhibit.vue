@@ -1,0 +1,340 @@
+<template>
+  <div id="main-exhibit">
+    <h2>订展比相关统计</h2>
+    <br/>
+    <div class="main-exhibit-chose">
+      <el-form ref="form" :model="form" label-width="80px">
+        <!-- -->
+        <el-form-item style="margin-bottom:6px;" label="查询维度">
+          <el-select v-on:change="chose_weidu" class="main-exhibit-weidu" v-model="form.weidu" placeholder="请选择查询维度">
+          <el-option
+            style="opacity: 1"
+            v-for="item in weidu"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+          </el-option>
+          </el-select>
+        </el-form-item>
+        <!-- -->
+        <el-form-item style="margin-bottom:6px;" label="查询模块">
+          <el-checkbox-group v-model="form.module">
+            <el-checkbox
+              style="width:220px;margin:0;padding: 0;"
+              v-for="item in module"
+              :key="item.label"
+              :label="item.label"
+              :name="item.name">
+            </el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+        <!-- -->
+        <el-form-item v-if="formFeeType" style="margin-bottom:6px;" label="付费类型">
+          <el-checkbox-group v-model="form.fee">
+            <el-checkbox
+              style="width:66px;margin:0;padding: 0;"
+              v-for="item in fee"
+              :key="item.label"
+              :label="item.label"
+              :name="item.name">
+            </el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+        <!-- -->
+        <el-form-item v-if="formStrategyType" style="margin-bottom:6px;" label="推荐策略">
+          <el-checkbox-group v-model="form.strategy">
+            <el-checkbox
+              style="width:110px;margin:0;padding: 0;"
+              v-for="item in strategy"
+              :key="item.label"
+              :label="item.label"
+              :name="item.name">
+            </el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+        <!-- -->
+        <el-form-item v-if="formStatuType" style="margin-bottom:6px;" label="连载/完结">
+          <el-checkbox-group v-model="form.status">
+            <el-checkbox
+              style="width:66px;margin:0;padding: 0;"
+              v-for="item in status"
+              :key="item.label"
+              :label="item.label"
+              :name="item.name">
+            </el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+        <!-- -->
+        <el-form-item v-if="formSubType" style="margin-bottom:6px;" label="订阅级别">
+          <el-checkbox-group v-model="form.sub">
+            <el-checkbox
+              style="width:160px;margin:0;padding: 0;"
+              v-for="item in sub"
+              :key="item.label"
+              :label="item.label"
+              :name="item.name">
+            </el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+        <!-- -->
+        <el-form-item v-if="formIntimeType" style="margin-bottom:6px;" label="入库时间">
+          <el-checkbox-group v-model="form.intime">
+            <el-checkbox
+              style="width:160px;margin:0;padding: 0;"
+              v-for="item in intime"
+              :key="item.label"
+              :label="item.label"
+              :name="item.name">
+            </el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+        <!-- -->
+        <el-form-item v-if="formUptimeType" style="margin-bottom:6px;" label="更新时间">
+          <el-checkbox-group v-model="form.uptime">
+            <el-checkbox
+              style="width:160px;margin:0;padding: 0;"
+              v-for="item in uptime"
+              :key="item.label"
+              :label="item.label"
+              :name="item.name">
+            </el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+        <!-- -->
+        <el-form-item v-if="formClassify1Type" style="margin-bottom:6px;" label="一级分类">
+          <el-checkbox-group v-model="form.classify1">
+            <el-checkbox
+              style="width:66px;margin:0;padding: 0;"
+              v-for="item in classify1"
+              :key="item.label"
+              :label="item.label"
+              :name="item.name">
+            </el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+        <!-- -->
+        <el-form-item style="margin-bottom:6px;" label="数量/占比">
+          <el-radio v-model="form.numRate" label="1">数量查询</el-radio>
+          <el-radio v-model="form.numRate" label="2">比例查询</el-radio>
+        </el-form-item>
+        <!-- -->
+        <el-form-item v-if="formNumTargetType" style="margin-bottom:6px;" label="查询指标">
+          <el-checkbox-group v-model="form.queryNum">
+            <el-checkbox
+              style="width:88px;margin:0;padding: 0;"
+              v-for="item in queryNum"
+              :key="item.label"
+              :label="item.label"
+              :name="item.name">
+            </el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+        <!-- -->
+        <el-form-item v-if="formRateTargetType" style="margin-bottom:6px;" label="查询指标">
+          <el-checkbox-group v-model="form.queryRate">
+            <el-checkbox
+              style="width:88px;margin:0;padding: 0;"
+              v-for="item in queryRate"
+              :key="item.label"
+              :label="item.label"
+              :name="item.name">
+            </el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+        <!-- -->
+        <el-form-item label="选择时间" style="width:670px;">
+          <el-date-picker type="date" placeholder="开始日期" v-model="form.startTime" style="width:266px;float:left"></el-date-picker>
+          <span style="margin-left:20px;">至</span>
+          <el-date-picker type="date" placeholder="结束日期" v-model="form.endTime" style="width: 266px;float:right"></el-date-picker>
+        </el-form-item>
+        <!-- -->
+        <el-form-item>
+          <el-button type="primary" @click="onSubmit">查询</el-button>
+          <el-button>重置</el-button>
+        </el-form-item>
+        <!-- -->
+      </el-form>
+      <!-- -->
+    </div>
+    <!-- -->
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'MainExhibit',
+  methods: {
+    /* 维度选择 */
+    chose_weidu () {
+      alert(this.form['weidu'])
+    },
+    onSubmit () {
+      console.log('submit!')
+    }
+  },
+  data () {
+    return {
+      formFeeType: false,
+      formStrategyType: false,
+      formStatuType: false,
+      formSubType: false,
+      formIntimeType: false,
+      formUptimeType: false,
+      formClassify1Type: false,
+      formNumTargetType: false,
+      formRateTargetType: false,
+      form: {
+        weidu: '',
+        module: [],
+        fee: [],
+        strategy: [],
+        status: [],
+        sub: [],
+        intime: [],
+        uptime: [],
+        classify1: [],
+        numRate: '',
+        queryNum: [],
+        queryRate: [],
+        startTime: '',
+        endTime: ''
+      },
+      weidu: [
+        {value: 'summary', label: '总计'},
+        {value: 'fee', label: '付费类型'},
+        {value: 'strategy', label: '推荐策略'},
+        {value: 'status', label: '连载/完结'},
+        {value: 'view', label: '订阅级别'},
+        {value: 'intime', label: '入库时间'},
+        {value: 'update', label: '更新时间'},
+        {value: 'classify1', label: '一级分类'}
+      ],
+      module: [
+        {label: '精选-瀑布流', name: 'chsStmMdl'},
+        {label: '精选-精品必读', name: 'chsBDMdl'},
+        {label: '精选-热门推荐', name: 'chsHRMdl'},
+        {label: '精选-完结佳作', name: 'chsCRMdl'},
+        {label: '精选-男频瀑布流', name: 'chsBoyStmMdl'},
+        {label: '精选-女频瀑布流', name: 'chsGilStmMdl'},
+        {label: '精选-排行瀑布流', name: 'chsRakStmMdl'},
+        {label: '精选-完结瀑布流', name: 'chsFinStmMdl'},
+        {label: '精选-根据阅读分类推荐', name: 'chsRRCMdl'},
+        {label: '精选-根据阅读书籍推荐', name: 'chsRRBMdl'},
+        {label: '封面页-类别推荐', name: 'foeCtgMdl'},
+        {label: '封面页-作者推荐', name: 'foeAutMdl'},
+        {label: '封面页-读本书的人还看过', name: 'foeArdMdl'},
+        {label: '封面页-读本书的人还看过更多', name: 'foeArdMorMdl'},
+        {label: '章末页-读本书的人还看过', name: 'bakArdMdl'},
+        {label: '书架推荐', name: 'shfRecMdl'},
+        {label: '书架-猜你喜欢', name: 'shfGusMdl'},
+        {label: '免费-猜你喜欢', name: 'freGusMdl'},
+        {label: '免费-免费推荐', name: 'freFRMdl'},
+        {label: '免费-包月推荐', name: 'freMonRecMdl'},
+        {label: '包月瀑布流', name: 'monStmMdl'},
+        {label: '根据阅读推荐', name: 'redRecMdl'},
+        {label: '退出拦截推荐', name: 'extRecMdl'}
+      ],
+      fee: [
+        {label: '免费', name: 'freFee'},
+        {label: '全免', name: 'allFee'},
+        {label: '付费', name: 'chgFee'},
+        {label: '包月', name: 'monFee'},
+        {label: '公版', name: 'pubFee'},
+        {label: '限免', name: 'tfFee'}
+      ],
+      strategy: [
+        {label: '实时流', name: 'livStmRec'},
+        {label: '用户协同', name: 'usrKnnRec'},
+        {label: '冷启动', name: 'codBotRec'},
+        {label: '流行度', name: 'popRec'},
+        {label: '物品协同', name: 'itemKnnRec'},
+        {label: '同分类', name: 'samCtgRec'},
+        {label: '订阅模型', name: 'subMdlRec'},
+        {label: '阅读模型', name: 'redMdlRec'},
+        {label: '内容相似', name: 'cotSimRec'},
+        {label: '阅读同分类', name: 'redMdlRec'},
+        {label: '一级同分类', name: 'cat1SimCtgRec'},
+        {label: '近期协同', name: 'nerIcfKnn'}
+      ],
+      status: [
+        {label: '连载', name: 'noCmpStau'},
+        {label: '完结', name: 'cmpStau'}
+      ],
+      sub: [
+        {label: '介于0到10', name: 'bt0to10Sub'},
+        {label: '介于10到100', name: 'bt10to1bSub'},
+        {label: '介于100到1000', name: 'bt1bto1kSub'},
+        {label: '介于1000到10000', name: 'bt1kto10kSub'},
+        {label: '介于1万到10万', name: 'bt10kto100kSub'},
+        {label: '介于10万到100万', name: 'bt100kto1000kSub'},
+        {label: '介于100万到1000万', name: 'bt1000kto10000kSub'}
+      ],
+      intime: [
+        {label: '1月内入库', name: 'lesMonIn'},
+        {label: '1~3月内入库', name: 'bt1mto3mIn'},
+        {label: '3~12月内入库', name: 'bt3mto12mIn'},
+        {label: '12~99月内入库', name: 'bt12mto99mIn'}
+      ],
+      uptime: [
+        {label: '0~1月未更新', name: 'lesMonUpd'},
+        {label: '1~3月未更新', name: 'bt1mto3mUpd'},
+        {label: '3~12月未更新', name: 'bt3mto12mUpd'},
+        {label: '12~99月未更新', name: 'bt12mto99mUpd'}
+      ],
+      classify1: [
+        {label: '男频', name: 'boyCfy1'},
+        {label: '女频', name: 'girlCfy1'},
+        {label: '包月', name: 'monCfy1'},
+        {label: '出版', name: 'pshCfy1'},
+        {label: '其它', name: 'othCfy1'}
+      ],
+      queryNum: [
+        {label: '展现量', name: 'dspNum'},
+        {label: '点击量', name: 'clkNum'},
+        {label: '订阅量', name: 'srbNum'},
+        {label: '阅读量1', name: 'redNum'},
+        {label: '阅读量2', name: 'rteNum'}
+      ],
+      queryRate: [
+        {label: '点展比', name: 'clkDsp'},
+        {label: '订点比', name: 'subClk'},
+        {label: '订展比', name: 'subDsp'},
+        {label: '阅订比1', name: 'redSub'},
+        {label: '阅展比1', name: 'redDsp'},
+        {label: '阅订比2', name: 'retent'},
+        {label: '阅展比', name: 'rteDsp'}
+      ]
+    }
+  }
+}
+</script>
+
+<style scoped>
+  #main-exhibit {
+    width: 100%;
+    padding: 6px 18px;
+    background-color: #ffffff;
+  }
+  #main-exhibit>h2 {
+    width: 180px;
+    margin: auto;
+    font-weight: lighter;
+  }
+  /* 查询维度 */
+  .main-exhibit-chose, .main-exhibit-chose > div{
+    width: 100%;
+    max-width: 2100px;
+  }
+  .main-exhibit-chose > div > small {
+    font-size: 13pt;
+  }
+  /* 展示区域 */
+</style>
+<style>
+  .main-exhibit-weidu, .main-exhibit-weidu > div > input {
+    width: 240px;
+  }
+  .main-exhibit-weidu > div > span {
+    left: 210px;
+  }
+</style>

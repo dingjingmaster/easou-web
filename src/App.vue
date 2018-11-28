@@ -12,6 +12,7 @@
     <!-- 页脚 -->
     <MainFooter></MainFooter>
     <div class="clear"></div>
+    <div style="height: 300px;"></div>
   </div>
 </template>
 
@@ -23,7 +24,6 @@ import MainFooter from '@/components/MainFooter'
 export default {
   name: 'App',
   methods: {
-
   },
   components: {
     MainHeader,

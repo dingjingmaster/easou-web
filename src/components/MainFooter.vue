@@ -17,9 +17,11 @@ export default {
     bottom: 0;
     padding-top: 18px;
     padding-left: 36px;
+    z-index: 999;
     position: fixed;
     clear: both;
     text-align: left;
+    border-top: 1px solid #EFEFEF;
     background-color: #FFFFFF;
   }
 </style>
