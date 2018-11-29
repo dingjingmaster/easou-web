@@ -157,102 +157,6 @@
     </div>
     <!-- -->
     <div id="main-exhibit-show">
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
-      <p>dadasd</p>
-      <br/>
     </div>
   </div>
 </template>
@@ -341,15 +245,19 @@ export default {
     },
     onSubmit () {
       axios({
+        url: 'http://127.0.0.1/exhibit',
         method: 'post',
-        url: '/exhibit',
-        baseURL: 'http://127.0.0.1',
-        data: 'data'
+        data: this.form,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        }
+      }).then(function (response) {
+        console.log(response)
+      }).catch(function (error) {
+        console.log(error)
       })
     },
     onCancel () {
-      this.form.weidu = 'summary'
-      this.init()
     }
   },
   data () {
