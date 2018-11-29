@@ -15,3 +15,6 @@ webstrom
 3. npm install webpack -g
 4. npm i element-ui -S
 5. npm install axios
+
+## 目前问题
+1. 菜单栏无法固定位置
