@@ -8,12 +8,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .i-main-content {
   width: calc(100% - 80px);
-  height: 100%;
-  margin-top: 80px;
-  margin-left: 70px;
+  height: calc(100% - 88px);
+  top: 88px;
+  left: 80px;
+  z-index: 996;
   float: left;
+  position: absolute;
 }
 </style>

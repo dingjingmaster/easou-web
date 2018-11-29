@@ -2,17 +2,14 @@
   <div id="app">
     <!-- 顶部导航栏 -->
     <MainHeader></MainHeader>
-    <div class="clear"></div>
     <!-- 左侧导航栏 -->
     <MainMenu></MainMenu>
-    <div class="clear"></div>
     <!-- 右侧主要内容 -->
     <MainMain></MainMain>
-    <div class="clear"></div>
     <!-- 页脚 -->
     <MainFooter></MainFooter>
-    <div class="clear"></div>
-    <div style="height: 300px;"></div>
+    <div style="clear: both;height: 0;"></div>
+    <div style="height: 60px;"></div>
   </div>
 </template>
 
@@ -43,10 +40,5 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
-    margin-top: 0;
-  }
-  .clear {
-    clear: both;
-    height: 0;
   }
 </style>

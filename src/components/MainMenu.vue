@@ -52,15 +52,17 @@
 
 <style>
   .i-main-menu {
-    height: 100%;
-    margin-top: 78px;
-    min-height: 800px;
     position: fixed;
+    width: 66px;
+    height: 100vh;
+    top: 78px;
+    left:0;
     z-index: 998;
+    float: left;
   }
   .i-main-menu:not(.el-menu--collapse) {
-    width: 280px;
-    height: calc(100vh - 80px - 260px);
+    width: 260px;
+    height: 100vh;
   }
 </style>
 

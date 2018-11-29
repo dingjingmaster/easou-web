@@ -6,9 +6,8 @@
       <el-form ref="form" :model="form" label-width="80px">
         <!-- -->
         <el-form-item style="margin-bottom:6px;" label="查询维度">
-          <el-select v-on:change="chose_weidu" class="main-exhibit-weidu" v-model="form.weidu" placeholder="请选择查询维度">
+          <el-select v-model="form.weidu" v-on:change="chose_weidu" class="main-exhibit-weidu" placeholder="请选择查询维度">
           <el-option
-            style="opacity: 1"
             v-for="item in weidu"
             :key="item.value"
             :label="item.label"
@@ -23,153 +22,334 @@
               style="width:220px;margin:0;padding: 0;"
               v-for="item in module"
               :key="item.label"
-              :label="item.label"
-              :name="item.name">
+              :label="item.label">
             </el-checkbox>
           </el-checkbox-group>
         </el-form-item>
         <!-- -->
-        <el-form-item v-if="formFeeType" style="margin-bottom:6px;" label="付费类型">
+        <el-form-item v-if="form.formFeeType" style="margin-bottom:6px;" label="付费类型">
           <el-checkbox-group v-model="form.fee">
             <el-checkbox
               style="width:66px;margin:0;padding: 0;"
               v-for="item in fee"
               :key="item.label"
-              :label="item.label"
-              :name="item.name">
+              :label="item.label">
             </el-checkbox>
           </el-checkbox-group>
         </el-form-item>
         <!-- -->
-        <el-form-item v-if="formStrategyType" style="margin-bottom:6px;" label="推荐策略">
+        <el-form-item v-if="form.formStrategyType" style="margin-bottom:6px;" label="推荐策略">
           <el-checkbox-group v-model="form.strategy">
             <el-checkbox
               style="width:110px;margin:0;padding: 0;"
               v-for="item in strategy"
               :key="item.label"
-              :label="item.label"
-              :name="item.name">
+              :label="item.label">
             </el-checkbox>
           </el-checkbox-group>
         </el-form-item>
         <!-- -->
-        <el-form-item v-if="formStatuType" style="margin-bottom:6px;" label="连载/完结">
+        <el-form-item v-if="form.formStatuType" style="margin-bottom:6px;" label="连载/完结">
           <el-checkbox-group v-model="form.status">
             <el-checkbox
               style="width:66px;margin:0;padding: 0;"
               v-for="item in status"
               :key="item.label"
-              :label="item.label"
-              :name="item.name">
+              :label="item.label">
             </el-checkbox>
           </el-checkbox-group>
         </el-form-item>
         <!-- -->
-        <el-form-item v-if="formSubType" style="margin-bottom:6px;" label="订阅级别">
+        <el-form-item v-if="form.formSubType" style="margin-bottom:6px;" label="订阅级别">
           <el-checkbox-group v-model="form.sub">
             <el-checkbox
               style="width:160px;margin:0;padding: 0;"
               v-for="item in sub"
               :key="item.label"
-              :label="item.label"
-              :name="item.name">
+              :label="item.label">
             </el-checkbox>
           </el-checkbox-group>
         </el-form-item>
         <!-- -->
-        <el-form-item v-if="formIntimeType" style="margin-bottom:6px;" label="入库时间">
+        <el-form-item v-if="form.formIntimeType" style="margin-bottom:6px;" label="入库时间">
           <el-checkbox-group v-model="form.intime">
             <el-checkbox
               style="width:160px;margin:0;padding: 0;"
               v-for="item in intime"
               :key="item.label"
-              :label="item.label"
-              :name="item.name">
+              :label="item.label">
             </el-checkbox>
           </el-checkbox-group>
         </el-form-item>
         <!-- -->
-        <el-form-item v-if="formUptimeType" style="margin-bottom:6px;" label="更新时间">
+        <el-form-item v-if="form.formUptimeType" style="margin-bottom:6px;" label="更新时间">
           <el-checkbox-group v-model="form.uptime">
             <el-checkbox
               style="width:160px;margin:0;padding: 0;"
               v-for="item in uptime"
               :key="item.label"
-              :label="item.label"
-              :name="item.name">
+              :label="item.label">
             </el-checkbox>
           </el-checkbox-group>
         </el-form-item>
         <!-- -->
-        <el-form-item v-if="formClassify1Type" style="margin-bottom:6px;" label="一级分类">
+        <el-form-item v-if="form.formClassify1Type" style="margin-bottom:6px;" label="一级分类">
           <el-checkbox-group v-model="form.classify1">
             <el-checkbox
               style="width:66px;margin:0;padding: 0;"
               v-for="item in classify1"
               :key="item.label"
-              :label="item.label"
-              :name="item.name">
+              :label="item.label">
             </el-checkbox>
           </el-checkbox-group>
         </el-form-item>
         <!-- -->
         <el-form-item style="margin-bottom:6px;" label="数量/占比">
-          <el-radio v-model="form.numRate" label="1">数量查询</el-radio>
-          <el-radio v-model="form.numRate" label="2">比例查询</el-radio>
+          <el-radio-group v-on:change="chose_num_or_rate" v-model="form.numRate">
+            <el-radio :label="1">数量查询</el-radio>
+            <el-radio :label="2">比例查询</el-radio>
+          </el-radio-group>
         </el-form-item>
         <!-- -->
-        <el-form-item v-if="formNumTargetType" style="margin-bottom:6px;" label="查询指标">
+        <el-form-item v-if="form.formNumTargetType" style="margin-bottom:6px;" label="查询指标">
           <el-checkbox-group v-model="form.queryNum">
             <el-checkbox
               style="width:88px;margin:0;padding: 0;"
               v-for="item in queryNum"
               :key="item.label"
-              :label="item.label"
-              :name="item.name">
+              :label="item.label">
             </el-checkbox>
           </el-checkbox-group>
         </el-form-item>
         <!-- -->
-        <el-form-item v-if="formRateTargetType" style="margin-bottom:6px;" label="查询指标">
+        <el-form-item v-if="form.formRateTargetType" style="margin-bottom:6px;" label="查询指标">
           <el-checkbox-group v-model="form.queryRate">
             <el-checkbox
               style="width:88px;margin:0;padding: 0;"
               v-for="item in queryRate"
-              :key="item.label"
-              :label="item.label"
-              :name="item.name">
+              :key="item.name"
+              :label="item.label">
             </el-checkbox>
           </el-checkbox-group>
         </el-form-item>
         <!-- -->
         <el-form-item label="选择时间" style="width:670px;">
-          <el-date-picker type="date" placeholder="开始日期" v-model="form.startTime" style="width:266px;float:left"></el-date-picker>
-          <span style="margin-left:20px;">至</span>
-          <el-date-picker type="date" placeholder="结束日期" v-model="form.endTime" style="width: 266px;float:right"></el-date-picker>
+          <el-date-picker
+            v-model="form.timeRange"
+            type="daterange"
+            align="right"
+            unlink-panels
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期"
+            value-format="yyyy-MM-dd"
+            :picker-options="time_range_option">
+          </el-date-picker>
         </el-form-item>
         <!-- -->
         <el-form-item>
           <el-button type="primary" @click="onSubmit">查询</el-button>
-          <el-button>重置</el-button>
+          <el-button @click="onCancel">重置</el-button>
         </el-form-item>
         <!-- -->
       </el-form>
       <!-- -->
     </div>
     <!-- -->
+    <div id="main-exhibit-show">
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+      <p>dadasd</p>
+      <br/>
+    </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+import RequestLineChart from '@/api/RequestLineChart'
 export default {
   name: 'MainExhibit',
+  components: {
+    RequestLineChart
+  },
   methods: {
+    init () {
+      this.form.formFeeType = false
+      this.form.formStrategyType = false
+      this.form.formStatuType = false
+      this.form.formSubType = false
+      this.form.formIntimeType = false
+      this.form.formUptimeType = false
+      this.form.formClassify1Type = false
+      this.form.formNumTargetType = false
+      this.form.formRateTargetType = true
+      this.form.timeRange = ''
+      this.form.module = ['精选-瀑布流']
+      this.form.fee = []
+      this.form.strategy = []
+      this.form.status = []
+      this.form.sub = []
+      this.form.intime = []
+      this.form.uptime = []
+      this.form.classify1 = []
+      this.form.numRate = 2
+      this.form.queryNum = []
+      this.form.queryRate = ['订展比']
+    },
     /* 维度选择 */
     chose_weidu () {
-      alert(this.form['weidu'])
+      this.init() // 1. 初始化参数
+      switch (this.form.weidu) {
+        case 'summary':
+          break
+        case 'fee':
+          this.form.formFeeType = true
+          break
+        case 'strategy':
+          this.form.formFeeType = true
+          this.form.formStrategyType = true
+          break
+        case 'status':
+          this.form.formFeeType = true
+          this.form.formStatuType = true
+          break
+        case 'view':
+          this.form.formFeeType = true
+          this.form.formSubType = true
+          break
+        case 'intime':
+          this.form.formFeeType = true
+          this.form.formIntimeType = true
+          break
+        case 'uptime':
+          this.form.formFeeType = true
+          this.form.formUptimeType = true
+          break
+        case 'classify1':
+          this.form.formFeeType = true
+          this.form.formClassify1Type = true
+          break
+      }
+    },
+    /* 选择比例或数量 */
+    chose_num_or_rate () {
+      switch (this.form.numRate) {
+        case 1 :
+          this.form.formNumTargetType = true
+          this.form.formRateTargetType = false
+          this.form.queryRate = []
+          break
+        case 2 :
+          this.form.formNumTargetType = false
+          this.form.formRateTargetType = true
+          this.form.queryNum = []
+          break
+      }
     },
     onSubmit () {
-      console.log('submit!')
+      axios({
+        method: 'post',
+        url: '/exhibit',
+        baseURL: 'http://127.0.0.1',
+        data: 'data'
+      })
+    },
+    onCancel () {
+      this.form.weidu = 'summary'
+      this.init()
     }
   },
   data () {
@@ -181,11 +361,37 @@ export default {
       formIntimeType: false,
       formUptimeType: false,
       formClassify1Type: false,
-      formNumTargetType: false,
-      formRateTargetType: false,
+      /* 时间选择 */
+      time_range_option: {
+        shortcuts: [{
+          text: '最近一周',
+          onClick (picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+            picker.$emit('pick', [start, end])
+          }
+        }, {
+          text: '最近一个月',
+          onClick (picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+            picker.$emit('pick', [start, end])
+          }
+        }, {
+          text: '最近三个月',
+          onClick (picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
+            picker.$emit('pick', [start, end])
+          }
+        }]
+      },
       form: {
-        weidu: '',
-        module: [],
+        weidu: 'summary',
+        module: ['精选-瀑布流'],
         fee: [],
         strategy: [],
         status: [],
@@ -193,11 +399,12 @@ export default {
         intime: [],
         uptime: [],
         classify1: [],
-        numRate: '',
+        numRate: 2,
+        formNumTargetType: false,
+        formRateTargetType: true,
         queryNum: [],
-        queryRate: [],
-        startTime: '',
-        endTime: ''
+        queryRate: ['订展比'],
+        timeRange: ''
       },
       weidu: [
         {value: 'summary', label: '总计'},
@@ -206,7 +413,7 @@ export default {
         {value: 'status', label: '连载/完结'},
         {value: 'view', label: '订阅级别'},
         {value: 'intime', label: '入库时间'},
-        {value: 'update', label: '更新时间'},
+        {value: 'uptime', label: '更新时间'},
         {value: 'classify1', label: '一级分类'}
       ],
       module: [
@@ -309,7 +516,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   #main-exhibit {
     width: 100%;
     padding: 6px 18px;
@@ -329,8 +536,6 @@ export default {
     font-size: 13pt;
   }
   /* 展示区域 */
-</style>
-<style>
   .main-exhibit-weidu, .main-exhibit-weidu > div > input {
     width: 240px;
   }
