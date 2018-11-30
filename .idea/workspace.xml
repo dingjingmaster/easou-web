@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="749d1492-7b02-43e2-b785-0fe7041ef49e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/MainExhibit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainExhibit.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,16 +18,17 @@
     <session id="1510776859">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.29" value="2" />
           <entry key="project.open.time.33" value="1" />
           <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -55,13 +53,13 @@
           <entry key="Less" value="1" />
           <entry key="Markdown" value="2" />
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="TypeScript" value="1" />
+          <entry key="TypeScript" value="2" />
           <entry key="Vue.js" value="93" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="ESLintLanguageService" value="9" />
+          <entry key="ESLintLanguageService" value="10" />
           <entry key="TypeScriptServerServiceImpl" value="1" />
         </counts>
       </usages-collector>
@@ -84,7 +82,7 @@
           <entry key="Less" value="50" />
           <entry key="Markdown" value="152" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Vue.js" value="12614" />
+          <entry key="Vue.js" value="13965" />
         </counts>
       </usages-collector>
     </session>
@@ -94,8 +92,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/MainExhibit.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3530">
-              <caret line="314" column="17" selection-start-line="314" selection-start-column="8" selection-end-line="314" selection-end-column="17" />
+            <state relative-caret-position="149">
+              <caret line="369" selection-start-line="369" selection-end-line="370" />
               <folding>
                 <element signature="n#style#0;n#el-form-item#0;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-form-item#1;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -120,7 +118,6 @@
                 <element signature="n#style#0;n#el-form-item#11;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-checkbox#0;n#el-checkbox-group#0;n#el-form-item#11;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-form-item#12;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="e#5925#5945#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -201,8 +198,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="460" />
-    <option name="y" value="254" />
+    <option name="x" value="407" />
+    <option name="y" value="183" />
     <option name="width" value="1505" />
     <option name="height" value="835" />
   </component>
@@ -294,12 +291,13 @@
       <workItem from="1543370652228" duration="24644000" />
       <workItem from="1543454113147" duration="7425000" />
       <workItem from="1543461634394" duration="8987000" />
-      <workItem from="1543477086261" duration="9052000" />
+      <workItem from="1543477086261" duration="9241000" />
+      <workItem from="1543550924456" duration="6504000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97033000" />
+    <option name="totallyTimeSpent" value="103726000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -311,14 +309,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="405" y="233" width="1505" height="835" extended-state="0" />
-    <editor active="true" />
+    <frame x="407" y="183" width="1505" height="835" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.198364" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32998326" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.20571429" />
@@ -330,6 +326,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2557143" />
+      <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -511,11 +508,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-114">
           <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#330#378#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -558,20 +550,11 @@
     <entry file="file://$PROJECT_DIR$/node_modules/axios/index.d.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/rpc.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/rpc.js" />
     <entry file="file://$PROJECT_DIR$/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-          <folding>
-            <element signature="e#140#161#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -582,10 +565,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="17059" column="12" selection-start-line="17059" selection-start-column="12" selection-end-line="17059" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/MainExhibit.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3530">
-          <caret line="314" column="17" selection-start-line="314" selection-start-column="8" selection-end-line="314" selection-end-column="17" />
+        <state relative-caret-position="149">
+          <caret line="369" selection-start-line="369" selection-end-line="370" />
           <folding>
             <element signature="n#style#0;n#el-form-item#0;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#el-form-item#1;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -610,7 +600,6 @@
             <element signature="n#style#0;n#el-form-item#11;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#el-checkbox#0;n#el-checkbox-group#0;n#el-form-item#11;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#el-form-item#12;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#5925#5945#0" expanded="true" />
           </folding>
         </state>
       </provider>

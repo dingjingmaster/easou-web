@@ -244,10 +244,135 @@ export default {
       }
     },
     onSubmit () {
+      var module = []
+      for (var i = 0; i < this.form.module.length; ++i) {
+        var t1 = this.form.module[i]
+        for (var j = 0; i < this.module.length; ++j) {
+          var f1 = this.module[j]
+          if (t1 === f1.label) {
+            module.push(f1.name)
+            break
+          }
+        }
+      }
+      var target = []
+      if (this.form.formNumTargetType === true) {
+        for (i = 0; i < this.form.queryNum.length; ++i) {
+          t1 = this.form.queryNum[i]
+          for (j = 0; j < this.queryNum.length; ++j) {
+            f1 = this.queryNum[j]
+            if (t1 === f1.label) {
+              target.push(f1.name)
+              break
+            }
+          }
+        }
+      } else {
+        for (i = 0; i < this.form.queryRate.length; ++i) {
+          t1 = this.form.queryRate[i]
+          for (j = 0; j < this.queryRate.length; ++j) {
+            f1 = this.queryRate[j]
+            if (t1 === f1.label) {
+              target.push(f1.name)
+              break
+            }
+          }
+        }
+      }
+      var fee = []
+      for (i = 0; i < this.form.fee.length; ++i) {
+        t1 = this.form.fee[i]
+        for (j = 0; j < this.fee.length; ++j) {
+          f1 = this.fee[j]
+          if (t1 === f1.label) {
+            fee.push(f1.name)
+            break
+          }
+        }
+      }
+      var strategy = []
+      for (i = 0; i < this.form.strategy.length; ++i) {
+        t1 = this.form.strategy[i]
+        for (j = 0; j < this.strategy.length; ++j) {
+          f1 = this.strategy[j]
+          if (t1 === f1.label) {
+            strategy.push(f1.name)
+            break
+          }
+        }
+      }
+      var statu = []
+      for (i = 0; i < this.form.status.length; ++i) {
+        t1 = this.form.status[i]
+        for (j = 0; j < this.status.length; ++j) {
+          f1 = this.status[j]
+          if (t1 === f1.label) {
+            statu.push(f1.name)
+            break
+          }
+        }
+      }
+      var sub = []
+      for (i = 0; i < this.form.sub.length; ++i) {
+        t1 = this.form.view[i]
+        for (j = 0; j < this.sub.length; ++j) {
+          f1 = this.view[j]
+          if (t1 === f1.label) {
+            sub.push(f1.name)
+            break
+          }
+        }
+      }
+      var intime = []
+      for (i = 0; i < this.form.intime.length; ++i) {
+        t1 = this.form.intime[i]
+        for (j = 0; j < this.intime.length; ++j) {
+          f1 = this.intime[j]
+          if (t1 === f1.label) {
+            intime.push(f1.name)
+            break
+          }
+        }
+      }
+      var uptime = []
+      for (i = 0; i < this.form.uptime.length; ++i) {
+        t1 = this.form.uptime[i]
+        for (j = 0; j < this.uptime.length; ++j) {
+          f1 = this.uptime[j]
+          if (t1 === f1.label) {
+            uptime.push(f1.name)
+            break
+          }
+        }
+      }
+      var classify1 = []
+      for (i = 0; i < this.form.classify1.length; ++i) {
+        t1 = this.form.classify1[i]
+        for (j = 0; j < this.classify1.length; ++j) {
+          f1 = this.classify1[j]
+          if (t1 === f1.label) {
+            classify1.push(f1.name)
+            break
+          }
+        }
+      }
+      var request = {
+        weidu: this.form.weidu,
+        module: module,
+        target: target,
+        fee: fee,
+        strategy: strategy,
+        status: statu,
+        sub: sub,
+        intime: intime,
+        uptime: uptime,
+        classify1: classify1,
+        timeRange: this.form.timeRange
+      }
       axios({
         url: 'http://127.0.0.1/exhibit',
         method: 'post',
-        data: this.form,
+        data: request,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
         }
