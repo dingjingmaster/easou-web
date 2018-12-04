@@ -1,5 +1,5 @@
 <template>
-  <el-menu class="i-main-menu" @select="selected_child" :collapse="isCollapse">
+  <el-menu id="i-main-menu" @select="selected_child" :collapse="isCollapse">
     <!-- 导航1 -- 开始 -->
     <el-menu-item index="1">
         <i class="el-icon-menu"></i>
@@ -51,16 +51,15 @@
 </template>
 
 <style>
-  .i-main-menu {
-    position: fixed;
+  #i-main-menu {
     width: 66px;
     height: 100vh;
     top: 78px;
     left:0;
     z-index: 998;
-    float: left;
+    position: fixed;
   }
-  .i-main-menu:not(.el-menu--collapse) {
+  #i-main-menu:not(.el-menu--collapse) {
     width: 260px;
     height: 100vh;
   }

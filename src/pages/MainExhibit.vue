@@ -155,15 +155,16 @@
       </el-form>
       <!-- -->
     </div>
-    <!-- -->
-    <div id="main-exhibit-show">
-    </div>
+    <!-- 图片展示 -->
+    <div id="main-exhibit-show" style="width: 100%; height: calc(86vh); margin: 20px 16px"></div>
+    <div style="width:100%; height: 120px;"></div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import RequestLineChart from '@/api/RequestLineChart'
+import Highcharts from 'highcharts'
 export default {
   name: 'MainExhibit',
   components: {
@@ -359,7 +360,6 @@ export default {
       var request = {
         weidu: this.form.weidu,
         module: module,
-        target: target,
         fee: fee,
         strategy: strategy,
         status: statu,
@@ -367,8 +367,93 @@ export default {
         intime: intime,
         uptime: uptime,
         classify1: classify1,
-        timeRange: this.form.timeRange
+        timeRange: this.form.timeRange,
+        target: target
       }
+      var yIntro = this.formNumTargetType
+      /* 检查请求是否正确 */
+      if (this.form.weidu === '') {
+        this.$alert('必须选择查询维度', '错误', {
+          confirmButtonText: '确定'
+        })
+        return
+      }
+      if (this.form.module.length <= 0) {
+        this.$alert('必须选择查询模块', '错误', {
+          confirmButtonText: '确定'
+        })
+        return
+      }
+      if (target <= 0) {
+        this.$alert('必须选择查询目标', '错误', {
+          confirmButtonText: '确定'
+        })
+        return
+      }
+      if (this.form.timeRange <= 0) {
+        this.$alert('必须输入查询时间范围', '错误', {
+          confirmButtonText: '确定'
+        })
+        return
+      }
+      switch (this.form.weidu) {
+        case 'fee':
+          if (this.form.fee.length <= 0) {
+            this.$alert('请检查付费类型是否输入', '错误', {
+              confirmButtonText: '确定'
+            })
+            return
+          }
+          break
+        case 'strategy':
+          if ((this.form.fee <= 0) || (this.form.strategy.length <= 0)) {
+            this.$alert('请检查策略是否输入', '错误', {
+              confirmButtonText: '确定'
+            })
+            return
+          }
+          break
+        case 'status':
+          if ((this.form.fee <= 0) || (this.form.status.length <= 0)) {
+            this.$alert('请检查状态是否输入', '错误', {
+              confirmButtonText: '确定'
+            })
+            return
+          }
+          break
+        case 'view':
+          if ((this.form.fee <= 0) || (this.form.sub.length <= 0)) {
+            this.$alert('请检查状态是否输入', '错误', {
+              confirmButtonText: '确定'
+            })
+            return
+          }
+          break
+        case 'intime':
+          if ((this.form.fee <= 0) || (this.form.intime.length <= 0)) {
+            this.$alert('请检查入库时间是否输入', '错误', {
+              confirmButtonText: '确定'
+            })
+            return
+          }
+          break
+        case 'uptime':
+          if ((this.form.fee <= 0) || (this.form.uptime.length <= 0)) {
+            this.$alert('请检查更新时间是否输入', '错误', {
+              confirmButtonText: '确定'
+            })
+            return
+          }
+          break
+        case 'classify1':
+          if ((this.form.fee <= 0) || (this.form.classify1.length <= 0)) {
+            this.$alert('请检查一级分类是否输入', '错误', {
+              confirmButtonText: '确定'
+            })
+            return
+          }
+      }
+      /* 发送请求 */
       axios({
         url: 'http://127.0.0.1/exhibit',
         method: 'post',
@@ -377,12 +462,54 @@ export default {
           'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
         }
       }).then(function (response) {
-        console.log(response)
+        var obj = response.data
+        if ((response.status === 200) && (obj['Status'] === true)) {
+          var lines = obj['Lines']
+          var y = []
+          var x = []
+          x = lines[0]['X']
+          for (var i = 0; i < lines.length; ++i) {
+            var info = lines[i]
+            var tmp = {}
+            tmp['name'] = info['Introduction']
+            tmp['data'] = info['Y']
+            y[i] = tmp
+          }
+          //
+          Highcharts.chart('main-exhibit-show', {
+            chart: {
+              type: 'line'
+            },
+            title: {
+              text: '线上 订展比 相关统计'
+            },
+            xAxis: {
+              categories: x
+            },
+            yAxis: {
+              title: {
+                text: yIntro === true ? '数量查询' : '比例查询(100%)'
+              }
+            },
+            plotOptions: {
+              line: {
+                dataLabels: {
+                  enabled: false
+                },
+                enableMouseTracking: false
+              }
+            },
+            series: y
+          })
+        } else {
+          console.log('返回数据出错!!!')
+        }
       }).catch(function (error) {
         console.log(error)
       })
     },
     onCancel () {
+      this.init() // 1. 初始化参数
     }
   },
   data () {
@@ -400,16 +527,18 @@ export default {
           text: '最近一周',
           onClick (picker) {
             const end = new Date()
+            end.setTime(end.getTime() - 3600 * 1000 * 24 * 2)
             const start = new Date()
-            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 9)
             picker.$emit('pick', [start, end])
           }
         }, {
           text: '最近一个月',
           onClick (picker) {
             const end = new Date()
+            end.setTime(end.getTime() - 3600 * 1000 * 24 * 2)
             const start = new Date()
-            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 32)
             picker.$emit('pick', [start, end])
           }
         }, {
@@ -420,7 +549,10 @@ export default {
             start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
             picker.$emit('pick', [start, end])
           }
-        }]
+        }],
+        disabledDate (time) {
+          return time.getTime() > Date.now() - 24 * 3600 * 1000 * 2
+        }
       },
       form: {
         weidu: 'summary',

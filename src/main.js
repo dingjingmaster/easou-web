@@ -7,6 +7,8 @@ import router from './router'
 import 'element-ui/lib/theme-chalk/index.css'
 import ElementUI from 'element-ui'
 
+import 'babel-polyfill'
+
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 

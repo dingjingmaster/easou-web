@@ -6,7 +6,7 @@ webstrom
 
 ## 使用到的框架
 1. vue
-2. element
+2. element UI
 3. webpack
 
 ## 依赖包/环境安装
@@ -15,6 +15,7 @@ webstrom
 3. npm install webpack -g
 4. npm i element-ui -S
 5. npm install axios
+6. npm install babel-polyfill
 
 ## 目前问题
-1. 菜单栏无法固定位置
+1. ~~菜单栏无法固定位置~~

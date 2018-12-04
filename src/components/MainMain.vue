@@ -10,8 +10,8 @@ export default {
 
 <style>
 .i-main-content {
-  width: calc(100% - 80px);
-  height: calc(100% - 88px);
+  width: calc(100% - 180px);
+  height: calc(100% + 200px);
   top: 88px;
   left: 80px;
   z-index: 996;

@@ -9,7 +9,7 @@
     <!-- 页脚 -->
     <MainFooter></MainFooter>
     <div style="clear: both;height: 0;"></div>
-    <div style="height: 60px;"></div>
+    <div style="width:100%; height: 320px;"></div>
   </div>
 </template>
 
