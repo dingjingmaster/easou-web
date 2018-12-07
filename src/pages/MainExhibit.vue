@@ -315,9 +315,9 @@ export default {
       }
       var sub = []
       for (i = 0; i < this.form.sub.length; ++i) {
-        t1 = this.form.view[i]
+        t1 = this.form.sub[i]
         for (j = 0; j < this.sub.length; ++j) {
-          f1 = this.view[j]
+          f1 = this.sub[j]
           if (t1 === f1.label) {
             sub.push(f1.name)
             break
@@ -384,13 +384,13 @@ export default {
         })
         return
       }
-      if (target <= 0) {
+      if (target.length <= 0) {
         this.$alert('必须选择查询目标', '错误', {
           confirmButtonText: '确定'
         })
         return
       }
-      if (this.form.timeRange <= 0) {
+      if (this.form.timeRange.length <= 1) {
         this.$alert('必须输入查询时间范围', '错误', {
           confirmButtonText: '确定'
         })
@@ -406,7 +406,7 @@ export default {
           }
           break
         case 'strategy':
-          if ((this.form.fee <= 0) || (this.form.strategy.length <= 0)) {
+          if ((this.form.fee.length <= 0) || (this.form.strategy.length <= 0)) {
             this.$alert('请检查策略是否输入', '错误', {
               confirmButtonText: '确定'
             })
@@ -414,7 +414,7 @@ export default {
           }
           break
         case 'status':
-          if ((this.form.fee <= 0) || (this.form.status.length <= 0)) {
+          if ((this.form.fee.length <= 0) || (this.form.status.length <= 0)) {
             this.$alert('请检查状态是否输入', '错误', {
               confirmButtonText: '确定'
             })
@@ -422,7 +422,7 @@ export default {
           }
           break
         case 'view':
-          if ((this.form.fee <= 0) || (this.form.sub.length <= 0)) {
+          if ((this.form.fee.length <= 0) || (this.form.sub.length <= 0)) {
             this.$alert('请检查状态是否输入', '错误', {
               confirmButtonText: '确定'
             })
@@ -430,7 +430,7 @@ export default {
           }
           break
         case 'intime':
-          if ((this.form.fee <= 0) || (this.form.intime.length <= 0)) {
+          if ((this.form.fee.length <= 0) || (this.form.intime.length <= 0)) {
             this.$alert('请检查入库时间是否输入', '错误', {
               confirmButtonText: '确定'
             })
@@ -438,7 +438,7 @@ export default {
           }
           break
         case 'uptime':
-          if ((this.form.fee <= 0) || (this.form.uptime.length <= 0)) {
+          if ((this.form.fee.length <= 0) || (this.form.uptime.length <= 0)) {
             this.$alert('请检查更新时间是否输入', '错误', {
               confirmButtonText: '确定'
             })
@@ -446,7 +446,7 @@ export default {
           }
           break
         case 'classify1':
-          if ((this.form.fee <= 0) || (this.form.classify1.length <= 0)) {
+          if ((this.form.fee.length <= 0) || (this.form.classify1.length <= 0)) {
             this.$alert('请检查一级分类是否输入', '错误', {
               confirmButtonText: '确定'
             })
@@ -455,7 +455,7 @@ export default {
       }
       /* 发送请求 */
       axios({
-        url: 'http://127.0.0.1/exhibit',
+        url: 'http://127.0.0.1:8081/exhibit',
         method: 'post',
         data: request,
         headers: {

@@ -220,7 +220,7 @@ def trans_to_word(mstr):
         res = 'bt100kto1000kSub'
     elif mstr == '[1000000,10000000)':
         res = 'bt1000kto10000kSub'
-    
+
     # 入库时间划分
     elif mstr == '1月内入库':
         res = 'lesMonIn'
@@ -388,9 +388,9 @@ def get_view_number(mstr):
         res = 7
 
     return res
- 
+
 def get_intime_number(mstr):
- 
+
     res = 0
     if mstr == '1月内入库':
         res = 1
@@ -581,6 +581,7 @@ if __name__ == '__main__':
     db = MySQLdb.connect('localhost', user, passwd, 'item_exhibit', unix_socket='/data/wapage/hhzk/mserver/mysql5713/mysql.sock');
     cursor = db.cursor()                                                                # 获取操作游标
 
+    # 用户+物品维度
     inject_mysql(summaryPath, cursor, time, "summary")
     inject_mysql(feePath, cursor, time, "fee")
     inject_mysql(strategyPath, cursor, time, "strategy")
@@ -591,5 +592,8 @@ if __name__ == '__main__':
     inject_mysql(classify1Path, cursor, time, "classify1")
     #inject_mysql(classify2Path, cursor, time, "classify2")
 
+    # 用户维度
+
+    # 用户维度
     db.close()                                                                          # 关闭数据库
 
