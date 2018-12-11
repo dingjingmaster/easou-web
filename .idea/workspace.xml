@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="749d1492-7b02-43e2-b785-0fe7041ef49e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/item_exhibit/inject_exhibit.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/item_exhibit/inject_exhibit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/create_exhibit.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/create_exhibit.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/MainExhibit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainExhibit.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/MainExhibit.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1272">
-              <caret line="238" selection-start-line="238" selection-end-line="238" />
+            <state relative-caret-position="194">
+              <caret line="457" column="34" lean-forward="true" selection-start-line="457" selection-start-column="34" selection-end-line="457" selection-end-column="34" />
               <folding>
                 <element signature="n#style#0;n#el-form-item#0;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-form-item#1;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -114,8 +112,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="98" />
-    <option name="y" value="270" />
+    <option name="x" value="151" />
+    <option name="y" value="22" />
     <option name="width" value="1505" />
     <option name="height" value="830" />
   </component>
@@ -221,11 +219,12 @@
       <workItem from="1543887554170" duration="3967000" />
       <workItem from="1543977135474" duration="1211000" />
       <workItem from="1544179001693" duration="1938000" />
+      <workItem from="1544518206317" duration="120000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128987000" />
+    <option name="totallyTimeSpent" value="129107000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -237,7 +236,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="98" y="270" width="1505" height="830" extended-state="0" />
+    <frame x="143" y="82" width="1505" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.198364" />
@@ -253,8 +252,8 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32998326" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.50170416" side_tool="true" visible="true" weight="0.25574714" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49829584" visible="true" weight="0.25574714" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5023858" side_tool="true" visible="true" weight="0.25574714" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49761418" visible="true" weight="0.25574714" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -486,17 +485,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="380">
             <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -523,8 +522,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/MainExhibit.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1272">
-          <caret line="238" selection-start-line="238" selection-end-line="238" />
+        <state relative-caret-position="194">
+          <caret line="457" column="34" lean-forward="true" selection-start-line="457" selection-start-column="34" selection-end-line="457" selection-end-column="34" />
           <folding>
             <element signature="n#style#0;n#el-form-item#0;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#el-form-item#1;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />

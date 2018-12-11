@@ -455,7 +455,7 @@ export default {
       }
       /* 发送请求 */
       axios({
-        url: 'http://127.0.0.1:8081/exhibit',
+        url: 'http://10.26.26.161:50000/exhibit',
         method: 'post',
         data: request,
         headers: {
