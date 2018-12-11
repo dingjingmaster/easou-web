@@ -20,7 +20,7 @@
         <entry file="file://$PROJECT_DIR$/src/pages/MainExhibit.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="194">
-              <caret line="457" column="34" lean-forward="true" selection-start-line="457" selection-start-column="34" selection-end-line="457" selection-end-column="34" />
+              <caret line="457" column="39" selection-start-line="457" selection-start-column="39" selection-end-line="457" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#el-form-item#0;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-form-item#1;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -219,12 +219,13 @@
       <workItem from="1543887554170" duration="3967000" />
       <workItem from="1543977135474" duration="1211000" />
       <workItem from="1544179001693" duration="1938000" />
-      <workItem from="1544518206317" duration="120000" />
+      <workItem from="1544518206317" duration="279000" />
+      <workItem from="1544519277505" duration="26000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129107000" />
+    <option name="totallyTimeSpent" value="129292000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -236,7 +237,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="143" y="82" width="1505" height="830" extended-state="0" />
+    <frame x="151" y="22" width="1505" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.198364" />
@@ -252,8 +253,8 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32998326" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5023858" side_tool="true" visible="true" weight="0.25574714" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49761418" visible="true" weight="0.25574714" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5030675" side_tool="true" visible="true" weight="0.25574714" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4969325" visible="true" weight="0.25574714" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -506,13 +507,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/python/item_exhibit/inject_exhibit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="594" column="10" selection-start-line="594" selection-start-column="10" selection-end-line="594" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/python/item_exhibit/inject_exhibit.py" />
     <entry file="file://$PROJECT_DIR$/sql/create_exhibit.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="426">
@@ -523,7 +518,7 @@
     <entry file="file://$PROJECT_DIR$/src/pages/MainExhibit.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
-          <caret line="457" column="34" lean-forward="true" selection-start-line="457" selection-start-column="34" selection-end-line="457" selection-end-column="34" />
+          <caret line="457" column="39" selection-start-line="457" selection-start-column="39" selection-end-line="457" selection-end-column="39" />
           <folding>
             <element signature="n#style#0;n#el-form-item#0;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#el-form-item#1;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
