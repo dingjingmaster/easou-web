@@ -4,6 +4,19 @@
     <br/>
     <div class="main-exhibit-chose">
       <el-form ref="form" :model="form" label-width="80px">
+        <!-- 模块 -->
+        <el-form-item style="margin-bottom:6px;" label="查询模块">
+          <el-checkbox-group v-model="form.module">
+            <el-checkbox
+              style="width:220px;margin:0;padding: 0;"
+              v-for="item in module"
+              :key="item.label"
+              :label="item.label">
+            </el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+        <!-- -->
+        <!-- -->
         <!-- -->
         <el-form-item style="margin-bottom:6px;" label="查询维度">
           <el-select v-model="form.weidu" v-on:change="chose_weidu" class="main-exhibit-weidu" placeholder="请选择查询维度">
@@ -14,17 +27,6 @@
             :value="item.value">
           </el-option>
           </el-select>
-        </el-form-item>
-        <!-- -->
-        <el-form-item style="margin-bottom:6px;" label="查询模块">
-          <el-checkbox-group v-model="form.module">
-            <el-checkbox
-              style="width:220px;margin:0;padding: 0;"
-              v-for="item in module"
-              :key="item.label"
-              :label="item.label">
-            </el-checkbox>
-          </el-checkbox-group>
         </el-form-item>
         <!-- -->
         <el-form-item v-if="form.formFeeType" style="margin-bottom:6px;" label="付费类型">
