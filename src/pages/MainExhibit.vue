@@ -6,7 +6,7 @@
       <el-form ref="form" :model="form" label-width="76px">
         <!-- 模块 -->
         <el-form-item style="margin-bottom:6px;" label="查询模块">
-          <el-checkbox-group v-model="form.module" @change="exhibit_change">
+          <el-checkbox-group v-model="form.module">
             <el-checkbox
               style="width:218px;margin:0;padding: 0;"
               v-for="item in module"
@@ -17,7 +17,7 @@
         </el-form-item>
         <!-- -->
         <el-form-item style="margin-bottom:6px;" label="地区级别">
-          <el-checkbox-group v-model="form.areaLevel" @change="exhibit_change">
+          <el-checkbox-group v-model="form.areaLevel">
             <el-checkbox
               style="width:116px;margin:0;padding: 0;"
               v-for="item in areaLevel"
@@ -28,7 +28,7 @@
         </el-form-item>
         <!-- -->
         <el-form-item style="margin-bottom:6px;" label="用户级别">
-          <el-checkbox-group v-model="form.userLevel" @change="exhibit_change">
+          <el-checkbox-group v-model="form.userLevel">
             <el-checkbox
               style="width:116px;margin:0;padding: 0;"
               v-for="item in userLevel"
@@ -39,7 +39,7 @@
         </el-form-item>
         <!-- -->
         <el-form-item style="margin-bottom:6px;" label="新旧用户">
-          <el-checkbox-group v-model="form.userNewLevel" @change="exhibit_change">
+          <el-checkbox-group v-model="form.userNewLevel">
             <el-checkbox
               style="width:116px;margin:0;padding: 0;"
               v-for="item in userNewLevel"
@@ -50,7 +50,7 @@
         </el-form-item>
         <!-- -->
         <el-form-item style="margin-bottom:6px;" label="用户付费">
-          <el-checkbox-group v-model="form.userFeeLevel" @change="exhibit_change">
+          <el-checkbox-group v-model="form.userFeeLevel">
             <el-checkbox
               style="width:116px;margin:0;padding: 0;"
               v-for="item in userFeeLevel"
@@ -61,7 +61,7 @@
         </el-form-item>
         <!-- -->
         <el-form-item style="margin-bottom:6px;" label="物品付费">
-          <el-checkbox-group v-model="form.itemFeeLevel" @change="exhibit_change">
+          <el-checkbox-group v-model="form.itemFeeLevel">
             <el-checkbox
               style="width:116px;margin:0;padding: 0;"
               v-for="item in itemFeeLevel"
@@ -72,7 +72,7 @@
         </el-form-item>
         <!-- -->
         <el-form-item style="margin-bottom:6px;" label="推荐策略">
-          <el-checkbox-group v-model="form.strategy" @change="exhibit_change">
+          <el-checkbox-group v-model="form.strategy">
             <el-checkbox
               style="width:116px;margin:0;padding: 0;"
               v-for="item in strategy"
@@ -83,7 +83,7 @@
         </el-form-item>
         <!-- -->
         <el-form-item style="margin-bottom:6px;" label="连载/完结">
-          <el-checkbox-group v-model="form.status" @change="exhibit_change">
+          <el-checkbox-group v-model="form.status">
             <el-checkbox
               style="width:116px;margin:0;padding: 0;"
               v-for="item in status"
@@ -94,7 +94,7 @@
         </el-form-item>
         <!-- -->
         <el-form-item style="margin-bottom:6px;" label="订阅级别">
-          <el-checkbox-group v-model="form.sub" @change="exhibit_change">
+          <el-checkbox-group v-model="form.sub">
             <el-checkbox
               style="width:116px;margin:0;padding: 0;"
               v-for="item in sub"
@@ -105,7 +105,7 @@
         </el-form-item>
         <!-- -->
         <el-form-item style="margin-bottom:6px;" label="入库时间">
-          <el-checkbox-group v-model="form.intime" @change="exhibit_change">
+          <el-checkbox-group v-model="form.intime">
             <el-checkbox
               style="width:116px;margin:0;padding: 0;"
               v-for="item in intime"
@@ -122,7 +122,7 @@
           </el-radio-group>
         </el-form-item>
         <!-- -->
-        <el-form-item v-if="form.formNumTargetType" style="margin-bottom:6px;" label="查询指标">
+        <el-form-item v-if="formNumTargetType" style="margin-bottom:6px;" label="查询指标">
           <el-checkbox-group v-model="form.queryNum">
             <el-checkbox
               style="width:88px;margin:0;padding: 0;"
@@ -133,7 +133,7 @@
           </el-checkbox-group>
         </el-form-item>
         <!-- -->
-        <el-form-item v-if="form.formRateTargetType" style="margin-bottom:6px;" label="查询指标">
+        <el-form-item v-if="formRateTargetType" style="margin-bottom:6px;" label="查询指标">
           <el-checkbox-group v-model="form.queryRate">
             <el-checkbox
               style="width:88px;margin:0;padding: 0;"
@@ -159,8 +159,8 @@
         </el-form-item>
         <!-- -->
         <el-form-item>
-          <el-button type="primary" @click="onSubmit">查询</el-button>
-          <el-button @click="onCancel">重置</el-button>
+          <el-button type="primary" @click="on_submit">查询</el-button>
+          <el-button @click="on_cancel">重置</el-button>
         </el-form-item>
         <!-- -->
       </el-form>
@@ -173,7 +173,7 @@
 </template>
 
 <script>
-// import axios from 'axios'
+import axios from 'axios'
 import RequestLineChart from '@/api/RequestLineChart'
 // import Highcharts from 'highcharts'
 export default {
@@ -182,295 +182,213 @@ export default {
     RequestLineChart
   },
   methods: {
-    init () {
-      this.form.numRate = 1
-    },
     /* 选择比例或数量 */
     chose_num_or_rate () {
       switch (this.form.numRate) {
         case 1 :
-          this.form.formNumTargetType = true
-          this.form.formRateTargetType = false
+          this.formNumTargetType = true
+          this.formRateTargetType = false
           this.form.queryRate = []
           break
         case 2 :
-          this.form.formNumTargetType = false
-          this.form.formRateTargetType = true
+          this.formNumTargetType = false
+          this.formRateTargetType = true
           this.form.queryNum = []
           break
       }
     },
-    /* 检查全选按钮是否选中 */
-    exhibit_change () {
-      alert('触发')
-    }
-  //   onSubmit () {
-  //     var module = []
-  //     for (var i = 0; i < this.form.module.length; ++i) {
-  //       var t1 = this.form.module[i]
-  //       for (var j = 0; i < this.module.length; ++j) {
-  //         var f1 = this.module[j]
-  //         if (t1 === f1.label) {
-  //           module.push(f1.name)
-  //           break
-  //         }
-  //       }
-  //     }
-  //     var target = []
-  //     if (this.form.formNumTargetType === true) {
-  //       for (i = 0; i < this.form.queryNum.length; ++i) {
-  //         t1 = this.form.queryNum[i]
-  //         for (j = 0; j < this.queryNum.length; ++j) {
-  //           f1 = this.queryNum[j]
-  //           if (t1 === f1.label) {
-  //             target.push(f1.name)
-  //             break
-  //           }
-  //         }
-  //       }
-  //     } else {
-  //       for (i = 0; i < this.form.queryRate.length; ++i) {
-  //         t1 = this.form.queryRate[i]
-  //         for (j = 0; j < this.queryRate.length; ++j) {
-  //           f1 = this.queryRate[j]
-  //           if (t1 === f1.label) {
-  //             target.push(f1.name)
-  //             break
-  //           }
-  //         }
-  //       }
-  //     }
-  //     var fee = []
-  //     for (i = 0; i < this.form.fee.length; ++i) {
-  //       t1 = this.form.fee[i]
-  //       for (j = 0; j < this.fee.length; ++j) {
-  //         f1 = this.fee[j]
-  //         if (t1 === f1.label) {
-  //           fee.push(f1.name)
-  //           break
-  //         }
-  //       }
-  //     }
-  //     var strategy = []
-  //     for (i = 0; i < this.form.strategy.length; ++i) {
-  //       t1 = this.form.strategy[i]
-  //       for (j = 0; j < this.strategy.length; ++j) {
-  //         f1 = this.strategy[j]
-  //         if (t1 === f1.label) {
-  //           strategy.push(f1.name)
-  //           break
-  //         }
-  //       }
-  //     }
-  //     var statu = []
-  //     for (i = 0; i < this.form.status.length; ++i) {
-  //       t1 = this.form.status[i]
-  //       for (j = 0; j < this.status.length; ++j) {
-  //         f1 = this.status[j]
-  //         if (t1 === f1.label) {
-  //           statu.push(f1.name)
-  //           break
-  //         }
-  //       }
-  //     }
-  //     var sub = []
-  //     for (i = 0; i < this.form.sub.length; ++i) {
-  //       t1 = this.form.sub[i]
-  //       for (j = 0; j < this.sub.length; ++j) {
-  //         f1 = this.sub[j]
-  //         if (t1 === f1.label) {
-  //           sub.push(f1.name)
-  //           break
-  //         }
-  //       }
-  //     }
-  //     var intime = []
-  //     for (i = 0; i < this.form.intime.length; ++i) {
-  //       t1 = this.form.intime[i]
-  //       for (j = 0; j < this.intime.length; ++j) {
-  //         f1 = this.intime[j]
-  //         if (t1 === f1.label) {
-  //           intime.push(f1.name)
-  //           break
-  //         }
-  //       }
-  //     }
-  //     var uptime = []
-  //     for (i = 0; i < this.form.uptime.length; ++i) {
-  //       t1 = this.form.uptime[i]
-  //       for (j = 0; j < this.uptime.length; ++j) {
-  //         f1 = this.uptime[j]
-  //         if (t1 === f1.label) {
-  //           uptime.push(f1.name)
-  //           break
-  //         }
-  //       }
-  //     }
-  //     var classify1 = []
-  //     for (i = 0; i < this.form.classify1.length; ++i) {
-  //       t1 = this.form.classify1[i]
-  //       for (j = 0; j < this.classify1.length; ++j) {
-  //         f1 = this.classify1[j]
-  //         if (t1 === f1.label) {
-  //           classify1.push(f1.name)
-  //           break
-  //         }
-  //       }
-  //     }
-  //     var request = {
-  //       weidu: this.form.weidu,
-  //       module: module,
-  //       fee: fee,
-  //       strategy: strategy,
-  //       status: statu,
-  //       sub: sub,
-  //       intime: intime,
-  //       uptime: uptime,
-  //       classify1: classify1,
-  //       timeRange: this.form.timeRange,
-  //       target: target
-  //     }
-  //     var yIntro = this.formNumTargetType
-  //     /* 检查请求是否正确 */
-  //     if (this.form.weidu === '') {
-  //       this.$alert('必须选择查询维度', '错误', {
-  //         confirmButtonText: '确定'
-  //       })
-  //       return
-  //     }
-  //     if (this.form.module.length <= 0) {
-  //       this.$alert('必须选择查询模块', '错误', {
-  //         confirmButtonText: '确定'
-  //       })
-  //       return
-  //     }
-  //     if (target.length <= 0) {
-  //       this.$alert('必须选择查询目标', '错误', {
-  //         confirmButtonText: '确定'
-  //       })
-  //       return
-  //     }
-  //     if (this.form.timeRange.length <= 1) {
-  //       this.$alert('必须输入查询时间范围', '错误', {
-  //         confirmButtonText: '确定'
-  //       })
-  //       return
-  //     }
-  //     switch (this.form.weidu) {
-  //       case 'fee':
-  //         if (this.form.fee.length <= 0) {
-  //           this.$alert('请检查付费类型是否输入', '错误', {
-  //             confirmButtonText: '确定'
-  //           })
-  //           return
-  //         }
-  //         break
-  //       case 'strategy':
-  //         if ((this.form.fee.length <= 0) || (this.form.strategy.length <= 0)) {
-  //           this.$alert('请检查策略是否输入', '错误', {
-  //             confirmButtonText: '确定'
-  //           })
-  //           return
-  //         }
-  //         break
-  //       case 'status':
-  //         if ((this.form.fee.length <= 0) || (this.form.status.length <= 0)) {
-  //           this.$alert('请检查状态是否输入', '错误', {
-  //             confirmButtonText: '确定'
-  //           })
-  //           return
-  //         }
-  //         break
-  //       case 'view':
-  //         if ((this.form.fee.length <= 0) || (this.form.sub.length <= 0)) {
-  //           this.$alert('请检查状态是否输入', '错误', {
-  //             confirmButtonText: '确定'
-  //           })
-  //           return
-  //         }
-  //         break
-  //       case 'intime':
-  //         if ((this.form.fee.length <= 0) || (this.form.intime.length <= 0)) {
-  //           this.$alert('请检查入库时间是否输入', '错误', {
-  //             confirmButtonText: '确定'
-  //           })
-  //           return
-  //         }
-  //         break
-  //       case 'uptime':
-  //         if ((this.form.fee.length <= 0) || (this.form.uptime.length <= 0)) {
-  //           this.$alert('请检查更新时间是否输入', '错误', {
-  //             confirmButtonText: '确定'
-  //           })
-  //           return
-  //         }
-  //         break
-  //       case 'classify1':
-  //         if ((this.form.fee.length <= 0) || (this.form.classify1.length <= 0)) {
-  //           this.$alert('请检查一级分类是否输入', '错误', {
-  //             confirmButtonText: '确定'
-  //           })
-  //           return
-  //         }
-  //     }
-  //     /* 发送请求 */
-  //     axios({
-  //       url: 'http://10.26.26.161:32000/exhibit',
-  //       method: 'post',
-  //       data: request,
-  //       headers: {
-  //         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-  //       }
-  //     }).then(function (response) {
-  //       var obj = response.data
-  //       if ((response.status === 200) && (obj['Status'] === true)) {
-  //         var lines = obj['Lines']
-  //         var y = []
-  //         var x = []
-  //         x = lines[0]['X']
-  //         for (var i = 0; i < lines.length; ++i) {
-  //           var info = lines[i]
-  //           var tmp = {}
-  //           tmp['name'] = info['Introduction']
-  //           tmp['data'] = info['Y']
-  //           y[i] = tmp
-  //         }
-  //         //
-  //         Highcharts.chart('main-exhibit-show', {
-  //           chart: {
-  //             type: 'line'
-  //           },
-  //           title: {
-  //             text: '线上 订展比 相关统计'
-  //           },
-  //           xAxis: {
-  //             categories: x
-  //           },
-  //           yAxis: {
-  //             title: {
-  //               text: yIntro === true ? '数量查询' : '比例查询(100%)'
-  //             }
-  //           },
-  //           plotOptions: {
-  //             line: {
-  //               dataLabels: {
-  //                 enabled: false
-  //               },
-  //               enableMouseTracking: false
-  //             }
-  //           },
-  //           series: y
-  //         })
-  //       } else {
-  //         console.log('返回数据出错!!!')
-  //       }
-  //     }).catch(function (error) {
-  //       console.log(error)
-  //     })
-  //   },
-  //   onCancel () {
-  //     this.init() // 1. 初始化参数
-  //   }
+    on_submit () {
+      /* 检查选择是否全面 */
+      if (this.form.module.length <= 0) {
+        this.$alert('！查询模块 是否选中', '提示', {confirmButtonText: '确定'})
+      } else if (this.form.areaLevel.length <= 0) {
+        this.$alert('！地区级别 是否选中', '提示', {confirmButtonText: '确定'})
+      } else if (this.form.userLevel.length <= 0) {
+        this.$alert('！用户级别 是否选中', '提示', {confirmButtonText: '确定'})
+      } else if (this.form.userNewLevel.length <= 0) {
+        this.$alert('！新旧用户 是否选中', '提示', {confirmButtonText: '确定'})
+      } else if (this.form.userFeeLevel.length <= 0) {
+        this.$alert('！用户付费级别 是否选中', '提示', {confirmButtonText: '确定'})
+      } else if (this.form.itemFeeLevel.length <= 0) {
+        this.$alert('！物品付费级别 是否选中', '提示', {confirmButtonText: '确定'})
+      } else if (this.form.strategy.length <= 0) {
+        this.$alert('！推荐策略 是否选中', '提示', {confirmButtonText: '确定'})
+      } else if (this.form.status.length <= 0) {
+        this.$alert('！书籍状态 是否选中', '提示', {confirmButtonText: '确定'})
+      } else if (this.form.sub.length <= 0) {
+        this.$alert('！书籍订阅级别 是否选中', '提示', {confirmButtonText: '确定'})
+      } else if (this.form.intime.length <= 0) {
+        this.$alert('！入库时间 是否选中', '提示', {confirmButtonText: '确定'})
+      } else if (this.form.queryNum.length <= 0 && this.form.queryRate.length <= 0) {
+        this.$alert('！查询目标 是否选中', '提示', {confirmButtonText: '确定'})
+      } else if (this.form.timeRange.length < 2) {
+        this.$alert('！查询时间范围 是否选中', '提示', {confirmButtonText: '确定'})
+      } else {
+        const request = {}
+        request['module'] = []
+        for (var i = 0; i < this.form.module.length; ++i) {
+          for (var j = 0; j < this.module.length; ++j) {
+            if (this.module[j].label === this.form.module[i]) {
+              request['module'].push(this.module[j].name)
+              break
+            }
+          }
+        }
+        request['areaLevel'] = []
+        for (i = 0; i < this.form.areaLevel.length; ++i) {
+          for (j = 0; j < this.areaLevel.length; ++j) {
+            if (this.areaLevel[j].label === this.form.areaLevel[i]) {
+              request['areaLevel'].push(this.areaLevel[j].name)
+              break
+            }
+          }
+        }
+        request['userLevel'] = []
+        for (i = 0; i < this.form.userLevel.length; ++i) {
+          for (j = 0; j < this.userLevel.length; ++j) {
+            if (this.userLevel[j].label === this.form.userLevel[i]) {
+              request['userLevel'].push(this.userLevel[j].name)
+              break
+            }
+          }
+        }
+        request['userNewLevel'] = []
+        for (i = 0; i < this.form.userNewLevel.length; ++i) {
+          for (j = 0; j < this.userNewLevel.length; ++j) {
+            if (this.userNewLevel[j].label === this.form.userNewLevel[i]) {
+              request['userNewLevel'].push(this.userNewLevel[j].name)
+              break
+            }
+          }
+        }
+        request['userFeeLevel'] = []
+        for (i = 0; i < this.form.userFeeLevel.length; ++i) {
+          for (j = 0; j < this.userFeeLevel.length; ++j) {
+            if (this.userFeeLevel[j].label === this.form.userFeeLevel[i]) {
+              request['userFeeLevel'].push(this.userFeeLevel[j].name)
+              break
+            }
+          }
+        }
+        request['itemFeeLevel'] = []
+        for (i = 0; i < this.form.itemFeeLevel.length; ++i) {
+          for (j = 0; j < this.itemFeeLevel.length; ++j) {
+            if (this.itemFeeLevel[j].label === this.form.itemFeeLevel[i]) {
+              request['itemFeeLevel'].push(this.itemFeeLevel[j].name)
+              break
+            }
+          }
+        }
+        request['strategy'] = []
+        for (i = 0; i < this.form.strategy.length; ++i) {
+          for (j = 0; j < this.strategy.length; ++j) {
+            if (this.strategy[j].label === this.form.strategy[i]) {
+              request['strategy'].push(this.strategy[j].name)
+              break
+            }
+          }
+        }
+        request['status'] = []
+        for (i = 0; i < this.form.status.length; ++i) {
+          for (j = 0; j < this.status.length; ++j) {
+            if (this.status[j].label === this.form.status[i]) {
+              request['status'].push(this.status[j].name)
+              break
+            }
+          }
+        }
+        request['sub'] = []
+        for (i = 0; i < this.form.sub.length; ++i) {
+          for (j = 0; j < this.sub.length; ++j) {
+            if (this.sub[j].label === this.form.sub[i]) {
+              request['sub'].push(this.sub[j].name)
+              break
+            }
+          }
+        }
+        request['intime'] = []
+        for (i = 0; i < this.form.intime.length; ++i) {
+          for (j = 0; j < this.intime.length; ++j) {
+            if (this.intime[j].label === this.form.intime[i]) {
+              request['intime'].push(this.intime[j].name)
+              break
+            }
+          }
+        }
+        request['target'] = []
+        if (this.form.queryNum.length >= 0) {
+          for (i = 0; i < this.form.queryNum.length; ++i) {
+            for (j = 0; j < this.queryNum.length; ++j) {
+              if (this.queryNum[j].label === this.form.queryNum[i]) {
+                request['target'].push(this.queryNum[j].name)
+                break
+              }
+            }
+          }
+        } else {
+          for (i = 0; i < this.form.queryRate.length; ++i) {
+            for (j = 0; j < this.queryRate.length; ++j) {
+              if (this.queryRate[j].label === this.form.queryRate[i]) {
+                request['target'].push(this.queryRate[j].name)
+                break
+              }
+            }
+          }
+        }
+        request['timeRange'] = this.form.timeRange
+        axios({
+          url: 'http://127.0.0.1:80/exhibit',
+          method: 'post',
+          data: request,
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+          }
+        }).then(function (response) {
+          // var obj = response.data
+          // if ((response.status === 200) && (obj['Status'] === true)) {
+          //   var lines = obj['Lines']
+          //   var y = []
+          //   var x = []
+          //   x = lines[0]['X']
+          //   for (var i = 0; i < lines.length; ++i) {
+          //     var info = lines[i]
+          //     var tmp = {}
+          //     tmp['name'] = info['Introduction']
+          //     tmp['data'] = info['Y']
+          //     y[i] = tmp
+          //   }
+          //   Highcharts.chart('main-exhibit-show', {
+          //     chart: {
+          //       type: 'line'
+          //     },
+          //     title: {
+          //       text: '线上 订展比 相关统计'
+          //     },
+          //     xAxis: {
+          //       categories: x
+          //     },
+          //     yAxis: {
+          //       title: {
+          //         text: yIntro === true ? '数量查询' : '比例查询(100%)'
+          //       }
+          //     },
+          //     plotOptions: {
+          //       line: {
+          //         dataLabels: {
+          //           enabled: false
+          //         },
+          //         enableMouseTracking: false
+          //       }
+          //     },
+          //     series: y
+          //   })
+          // }
+        }).catch(function (error) {
+          console.log(error)
+        })
+      }
+    },
+    on_cancel () {}
   },
   data () {
     return {
@@ -521,14 +439,13 @@ export default {
         intime: [],
         queryNum: [],
         queryRate: [],
-        timeRange: '',
-        //
-        numRate: 1,
-        formNumTargetType: true,
-        formRateTargetType: false
+        timeRange: [],
+        numRate: 1
       },
+      formNumTargetType: true,
+      formRateTargetType: false,
       module: [
-        {label: '全选', name: 'allMdl'},
+        {label: '全部', name: 'allMdl'},
         {label: '书架推荐', name: 'shfRecMdl'},
         {label: '书架-猜你喜欢', name: 'shfGusMdl'},
         {label: '免费-免费推荐', name: 'freRecMdl'},
@@ -553,26 +470,26 @@ export default {
         {label: '退出拦截推荐', name: 'extBlkMdl'}
       ],
       areaLevel: [
-        {label: '全选', name: 'allArea'},
+        {label: '全部', name: 'allArea'},
         {label: '一类地区', name: 'oneArea'},
         {label: '二类地区', name: 'twoArea'},
         {label: '三类地区', name: 'trdArea'},
         {label: '其它', name: 'othArea'}
       ],
       userLevel: [
-        {label: '全选', name: 'allUsrLevel'},
+        {label: '全部', name: 'allUsrLevel'},
         {label: '普通用户', name: 'regUsrLevel'},
         {label: '特殊用户', name: 'sphUsrLevel'},
         {label: '其它', name: 'othUsrLevel'}
       ],
       userNewLevel: [
-        {label: '全选', name: 'allUsr'},
+        {label: '全部', name: 'allUsr'},
         {label: '新用户', name: 'newUsr'},
         {label: '老用户', name: 'oldUsr'},
         {label: '其它', name: 'othUsr'}
       ],
       userFeeLevel: [
-        {label: '全选', name: 'allFeeUsr'},
+        {label: '全部', name: 'allFeeUsr'},
         {label: '纯免费', name: 'freFeeUsr'},
         {label: '潜在付费', name: 'mybChgFeeUsr'},
         {label: '轻度付费', name: 'lgtChgFeeUsr'},
@@ -581,7 +498,7 @@ export default {
         {label: '其它', name: 'othFeeUsr'}
       ],
       itemFeeLevel: [
-        {label: '全选', name: 'allItmFee'},
+        {label: '全部', name: 'allItmFee'},
         {label: '付费', name: 'chgItmFee'},
         {label: '免费', name: 'freItmFee'},
         {label: '包月', name: 'monItmFee'},
@@ -589,7 +506,7 @@ export default {
         {label: '其它', name: 'othItmFee'}
       ],
       strategy: [
-        {label: '全选', name: 'allRec'},
+        {label: '全部', name: 'allRec'},
         {label: '一级同分类', name: 'cat1Rec'},
         {label: '二级同分类', name: 'cat2Rec'},
         {label: '内容相似', name: 'cotSimRec'},
@@ -597,20 +514,19 @@ export default {
         {label: '同作者', name: 'simAthRec'},
         {label: '同分类', name: 'catRec'},
         {label: '实时流', name: 'livStmRec'},
-        {label: '流行度', name: 'popRec'},
         {label: '物品协同', name: 'icfKnnRec'},
         {label: '用户协同', name: 'ucfKnnRec'},
         {label: '近期协同', name: 'nerIcfKnnRec'},
         {label: '其它', name: 'othRec'}
       ],
       status: [
-        {label: '全选', name: 'allStu'},
+        {label: '全部', name: 'allStu'},
         {label: '完结', name: 'cmpStu'},
         {label: '连载', name: 'noCmpStu'},
         {label: '其它', name: 'othStu'}
       ],
       sub: [
-        {label: '全选', name: 'allSub'},
+        {label: '全部', name: 'allSub'},
         {label: '0—10', name: 'bt0to10Sub'},
         {label: '10—100', name: 'bt10to1bSub'},
         {label: '100—1千', name: 'bt1bto1kSub'},
@@ -621,7 +537,7 @@ export default {
         {label: '其它', name: 'othSub'}
       ],
       intime: [
-        {label: '全选', name: 'allIn'},
+        {label: '全部', name: 'allIn'},
         {label: '1月内', name: 'lesMonIn'},
         {label: '1~3月内', name: 'bt1mto3mIn'},
         {label: '3~12月内', name: 'bt3mto12mIn'},
