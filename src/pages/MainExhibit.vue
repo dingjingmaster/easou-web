@@ -175,7 +175,7 @@
 <script>
 import axios from 'axios'
 import RequestLineChart from '@/api/RequestLineChart'
-// import Highcharts from 'highcharts'
+import Highcharts from 'highcharts'
 export default {
   name: 'MainExhibit',
   components: {
@@ -344,45 +344,46 @@ export default {
             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
           }
         }).then(function (response) {
-          // var obj = response.data
-          // if ((response.status === 200) && (obj['Status'] === true)) {
-          //   var lines = obj['Lines']
-          //   var y = []
-          //   var x = []
-          //   x = lines[0]['X']
-          //   for (var i = 0; i < lines.length; ++i) {
-          //     var info = lines[i]
-          //     var tmp = {}
-          //     tmp['name'] = info['Introduction']
-          //     tmp['data'] = info['Y']
-          //     y[i] = tmp
-          //   }
-          //   Highcharts.chart('main-exhibit-show', {
-          //     chart: {
-          //       type: 'line'
-          //     },
-          //     title: {
-          //       text: '线上 订展比 相关统计'
-          //     },
-          //     xAxis: {
-          //       categories: x
-          //     },
-          //     yAxis: {
-          //       title: {
-          //         text: yIntro === true ? '数量查询' : '比例查询(100%)'
-          //       }
-          //     },
-          //     plotOptions: {
-          //       line: {
-          //         dataLabels: {
-          //           enabled: false
-          //         },
-          //         enableMouseTracking: false
-          //       }
-          //     },
-          //     series: y
-          //   })
-          // }
+          var obj = response.data
+          if ((response.status === 200) && (obj['Status'] === true)) {
+            var lines = obj['Lines']
+            var y = []
+            for (var i = 0; i < lines.length; ++i) {
+              var info = lines[i]
+              var tmp = {}
+              tmp['name'] = info['Introduction']
+              tmp['data'] = info['Y']
+              y.push(tmp)
+            }
+            // const formNumTargetType = this.formNumTargetType
+            Highcharts.chart('main-exhibit-show', {
+              chart: {
+                type: 'line'
+              },
+              title: {
+                text: '线上订展比相关查询'
+              },
+              xAxis: {
+                categories: lines[0]['X']
+              },
+              yAxis: {
+                title: {
+                  text: '数量查询/比例查询(100%)'
+                }
+              },
+              plotOptions: {
+                line: {
+                  dataLabels: {
+                    enabled: false
+                  },
+                  enableMouseTracking: false
+                }
+              },
+              series: y
+            })
+          } else {
+            console.log('返回状态创无')
+          }
         }).catch(function (error) {
           console.log(error)
         })
@@ -548,8 +549,8 @@ export default {
         {label: '推荐量', name: 'dspNum'},
         {label: '点击量', name: 'clkNum'},
         {label: '订阅量', name: 'srbNum'},
-        {label: '阅读量1', name: 'redNum'},
-        {label: '阅读量2', name: 'rteNum'}
+        {label: '阅读量1', name: 'redNum1'},
+        {label: '阅读量2', name: 'redNum2'}
       ],
       queryRate: [
         {label: '点展比', name: 'clkDsp'},
