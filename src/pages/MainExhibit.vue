@@ -547,6 +547,9 @@ export default {
         {label: '物品协同', name: 'icfKnnRec'},
         {label: '用户协同', name: 'ucfKnnRec'},
         {label: '近期协同', name: 'nerIcfKnnRec'},
+        {label: '冷启动', name: 'codRec'},
+        {label: '订阅模型', name: 'subMdlRec'},
+        {label: '阅读模型', name: 'redMdlRec'},
         {label: '其它', name: 'othRec'}
       ],
       status: [
