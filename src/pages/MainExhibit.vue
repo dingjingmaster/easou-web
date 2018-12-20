@@ -208,6 +208,19 @@ export default {
           break
       }
     },
+    init () {
+      this.form.app = ['宜搜小说']
+      this.form.module = ['全部']
+      this.form.areaLevel = ['全部']
+      this.form.userLevel = ['全部']
+      this.form.userNewLevel = ['全部']
+      this.form.userFeeLevel = ['全部']
+      this.form.itemFeeLevel = ['全部']
+      this.form.strategy = ['全部']
+      this.form.status = ['全部']
+      this.form.sub = ['全部']
+      this.form.intime = ['全部']
+    },
     on_submit () {
       /* 检查选择是否全面 */
       if (this.form.app.length <= 0) {
@@ -359,7 +372,7 @@ export default {
         }
         request['timeRange'] = this.form.timeRange
         axios({
-          url: 'http://127.0.0.1:80/exhibit',
+          url: 'http://192.168.123.25:80/exhibit',
           method: 'post',
           data: request,
           headers: {
@@ -411,7 +424,9 @@ export default {
         })
       }
     },
-    on_cancel () {}
+    on_cancel () {
+      this.init()
+    }
   },
   data () {
     return {
@@ -450,17 +465,17 @@ export default {
         }
       },
       form: {
-        app: [],
-        module: [],
-        areaLevel: [],
-        userLevel: [],
-        userNewLevel: [],
-        userFeeLevel: [],
-        itemFeeLevel: [],
-        strategy: [],
-        status: [],
-        sub: [],
-        intime: [],
+        app: ['宜搜小说'],
+        module: ['全部'],
+        areaLevel: ['全部'],
+        userLevel: ['全部'],
+        userNewLevel: ['全部'],
+        userFeeLevel: ['全部'],
+        itemFeeLevel: ['全部'],
+        strategy: ['全部'],
+        status: ['全部'],
+        sub: ['全部'],
+        intime: ['全部'],
         queryNum: [],
         queryRate: [],
         timeRange: [],
