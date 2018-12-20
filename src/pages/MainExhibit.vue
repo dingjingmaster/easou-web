@@ -4,6 +4,17 @@
     <br/>
     <div class="main-exhibit-chose">
       <el-form ref="form" :model="form" label-width="76px">
+        <!-- app -->
+        <el-form-item style="margin-bottom:6px;" label="查询APP">
+          <el-checkbox-group v-model="form.app">
+            <el-checkbox
+              style="width:218px;margin:0;padding: 0;"
+              v-for="item in app"
+              :key="item.label"
+              :label="item.label">
+            </el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
         <!-- 模块 -->
         <el-form-item style="margin-bottom:6px;" label="查询模块">
           <el-checkbox-group v-model="form.module">
@@ -199,7 +210,9 @@ export default {
     },
     on_submit () {
       /* 检查选择是否全面 */
-      if (this.form.module.length <= 0) {
+      if (this.form.app.length <= 0) {
+        this.$alert('！查询app 是否选中', '提示', {confirmButtonText: '确定'})
+      } else if (this.form.module.length <= 0) {
         this.$alert('！查询模块 是否选中', '提示', {confirmButtonText: '确定'})
       } else if (this.form.areaLevel.length <= 0) {
         this.$alert('！地区级别 是否选中', '提示', {confirmButtonText: '确定'})
@@ -225,9 +238,18 @@ export default {
         this.$alert('！查询时间范围 是否选中', '提示', {confirmButtonText: '确定'})
       } else {
         const request = {}
+        request['app'] = []
+        for (var i = 0; i < this.form.app.length; ++i) {
+          for (var j = 0; j < this.app.length; ++j) {
+            if (this.app[j].label === this.form.app[i]) {
+              request['app'].push(this.app[j].name)
+              break
+            }
+          }
+        }
         request['module'] = []
-        for (var i = 0; i < this.form.module.length; ++i) {
-          for (var j = 0; j < this.module.length; ++j) {
+        for (i = 0; i < this.form.module.length; ++i) {
+          for (j = 0; j < this.module.length; ++j) {
             if (this.module[j].label === this.form.module[i]) {
               request['module'].push(this.module[j].name)
               break
@@ -428,6 +450,7 @@ export default {
         }
       },
       form: {
+        app: [],
         module: [],
         areaLevel: [],
         userLevel: [],
@@ -445,6 +468,12 @@ export default {
       },
       formNumTargetType: true,
       formRateTargetType: false,
+      app: [
+        {label: '全部app', name: 'allApp'},
+        {label: '宜搜小说', name: 'easouApp'},
+        {label: '微卷小说', name: 'weijuanApp'},
+        {label: '其它app', name: 'othApp'}
+      ],
       module: [
         {label: '全部', name: 'allMdl'},
         {label: '书架推荐', name: 'shfRecMdl'},
