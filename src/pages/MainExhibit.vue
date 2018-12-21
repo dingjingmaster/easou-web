@@ -372,7 +372,7 @@ export default {
         }
         request['timeRange'] = this.form.timeRange
         axios({
-          url: 'http://192.168.123.25:80/exhibit',
+          url: 'http://10.100.2.118:32000/exhibit',
           method: 'post',
           data: request,
           headers: {
