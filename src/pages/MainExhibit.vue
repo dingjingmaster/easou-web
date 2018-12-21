@@ -461,7 +461,9 @@ export default {
           }
         }],
         disabledDate (time) {
-          return time.getTime() > Date.now() - 24 * 3600 * 1000 * 2
+          const dt = new Date()
+          dt.setUTCFullYear(2018, 11, 12)
+          return time.getTime() < dt.getTime()
         }
       },
       form: {
