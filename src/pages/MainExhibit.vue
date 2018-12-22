@@ -171,7 +171,7 @@
         <!-- -->
         <el-form-item>
           <el-button type="primary" @click="on_submit">查询</el-button>
-          <el-button @click="on_cancel">重置</el-button>
+          <el-button @click="init">重置</el-button>
         </el-form-item>
         <!-- -->
       </el-form>
@@ -187,6 +187,7 @@
 import axios from 'axios'
 import RequestLineChart from '@/api/RequestLineChart'
 import Highcharts from 'highcharts'
+require('highcharts/modules/exporting')(Highcharts)
 export default {
   name: 'MainExhibit',
   components: {
@@ -220,8 +221,12 @@ export default {
       this.form.status = ['全部']
       this.form.sub = ['全部']
       this.form.intime = ['全部']
+      this.form.queryRate = []
+      this.form.timeRange = []
+      this.form.queryNum = []
     },
     on_submit () {
+      let j
       /* 检查选择是否全面 */
       if (this.form.app.length <= 0) {
         this.$alert('！查询app 是否选中', '提示', {confirmButtonText: '确定'})
@@ -250,10 +255,11 @@ export default {
       } else if (this.form.timeRange.length < 2) {
         this.$alert('！查询时间范围 是否选中', '提示', {confirmButtonText: '确定'})
       } else {
+        let i
         const request = {}
         request['app'] = []
-        for (var i = 0; i < this.form.app.length; ++i) {
-          for (var j = 0; j < this.app.length; ++j) {
+        for (i = 0; i < this.form.app.length; ++i) {
+          for (j = 0; j < this.app.length; ++j) {
             if (this.app[j].label === this.form.app[i]) {
               request['app'].push(this.app[j].name)
               break
@@ -351,7 +357,7 @@ export default {
           }
         }
         request['target'] = []
-        if (this.form.queryNum.length >= 0) {
+        if (this.formNumTargetType) {
           for (i = 0; i < this.form.queryNum.length; ++i) {
             for (j = 0; j < this.queryNum.length; ++j) {
               if (this.queryNum[j].label === this.form.queryNum[i]) {
@@ -379,13 +385,13 @@ export default {
             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
           }
         }).then(function (response) {
-          var obj = response.data
+          const obj = response.data
           if ((response.status === 200) && (obj['Status'] === true)) {
-            var lines = obj['Lines']
-            var y = []
-            for (var i = 0; i < lines.length; ++i) {
-              var info = lines[i]
-              var tmp = {}
+            const lines = obj['Lines']
+            const y = []
+            for (let i = 0; i < lines.length; ++i) {
+              const info = lines[i]
+              const tmp = {}
               tmp['name'] = info['Introduction']
               tmp['data'] = info['Y']
               y.push(tmp)
@@ -394,6 +400,9 @@ export default {
             Highcharts.chart('main-exhibit-show', {
               chart: {
                 type: 'line'
+              },
+              credits: {
+                enabled: false
               },
               title: {
                 text: '线上订展比相关查询'
@@ -406,26 +415,31 @@ export default {
                   text: '数量查询/比例查询(100%)'
                 }
               },
+              series: y,
               plotOptions: {
                 line: {
-                  dataLabels: {
-                    enabled: false
-                  },
-                  enableMouseTracking: false
+                  cursor: 'pointer'
+                },
+                series: {
+                  allowPointSelect: true
                 }
               },
-              series: y
+              exporting: {
+                filename: '线上订展比相关统计'
+              },
+              navigation: {
+                buttonOptions: {
+                  align: 'right'
+                }
+              }
             })
           } else {
-            console.log('返回状态创无')
+            console.log('返回状态错误')
           }
         }).catch(function (error) {
           console.log(error)
         })
       }
-    },
-    on_cancel () {
-      this.init()
     }
   },
   data () {
