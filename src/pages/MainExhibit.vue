@@ -476,7 +476,7 @@ export default {
         }],
         disabledDate (time) {
           const dt = new Date()
-          dt.setUTCFullYear(2018, 11, 12)
+          dt.setUTCFullYear(2018, 10, 30)
           return time.getTime() < dt.getTime()
         }
       },
@@ -502,7 +502,7 @@ export default {
       app: [
         {label: '全部app', name: 'allApp'},
         {label: '宜搜小说', name: 'easouApp'},
-        {label: '微卷小说', name: 'weijuanApp'},
+        {label: '微卷', name: 'weijuanApp'},
         {label: '其它app', name: 'othApp'}
       ],
       module: [
@@ -511,8 +511,11 @@ export default {
         {label: '书架-猜你喜欢', name: 'shfGusMdl'},
         {label: '免费-免费推荐', name: 'freRecMdl'},
         {label: '免费-猜你喜欢', name: 'freGusMdl'},
+        {label: '免费-包月推荐', name: 'freByRecMdl'},
+        {label: '七日限免', name: 'fre7TfMdl'},
         {label: '包月瀑布流', name: 'monStmMdl'},
         {label: '封面页-类别推荐', name: 'foeCateRecMdl'},
+        {label: '封面页-作者推荐', name: 'foeAutRecMdl'},
         {label: '封面页-读本书的人还看过', name: 'foeRedRedMdl'},
         {label: '封面页-读本书的人还看过更多', name: 'foeRedMorMdl'},
         {label: '搜索结果页-热搜TOP榜', name: 'sehResTopMdl'},
@@ -535,6 +538,7 @@ export default {
         {label: '一类地区', name: 'oneArea'},
         {label: '二类地区', name: 'twoArea'},
         {label: '三类地区', name: 'trdArea'},
+        {label: '四类地区', name: 'fthArea'},
         {label: '其它', name: 'othArea'}
       ],
       userLevel: [
@@ -564,6 +568,7 @@ export default {
         {label: '免费', name: 'freItmFee'},
         {label: '包月', name: 'monItmFee'},
         {label: '限免', name: 'tfItmFee'},
+        {label: '互联网', name: 'allFreItmFee'},
         {label: '其它', name: 'othItmFee'}
       ],
       strategy: [
