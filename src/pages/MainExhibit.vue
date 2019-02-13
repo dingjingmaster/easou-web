@@ -378,7 +378,7 @@ export default {
         }
         request['timeRange'] = this.form.timeRange
         axios({
-          url: 'http://10.26.26.161:32000/exhibit',
+          url: 'http://10.26.24.87:32000/exhibit',
           method: 'post',
           data: request,
           headers: {
@@ -624,10 +624,10 @@ export default {
         {label: '点展比', name: 'clkDsp'},
         {label: '订点比', name: 'subClk'},
         {label: '订展比', name: 'subDsp'},
-        {label: '阅订比1', name: 'redSub'},
-        {label: '阅展比1', name: 'redDsp'},
-        {label: '阅订比2', name: 'retent'},
-        {label: '阅展比', name: 'rteDsp'}
+        {label: '阅订比1', name: 'redSub1'},
+        {label: '阅展比1', name: 'redDsp1'},
+        {label: '阅订比2', name: 'redSub2'},
+        {label: '阅展比2', name: 'redDsp2'}
       ]
     }
   }
