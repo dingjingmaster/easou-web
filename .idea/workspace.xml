@@ -2,17 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="749d1492-7b02-43e2-b785-0fe7041ef49e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/css/app.6587f5bc19cd97caf172063bb0ec355f.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/css/app.6587f5bc19cd97caf172063bb0ec355f.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/fonts/element-icons.6f0a763.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/app.1995e8f954207f6c239a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/app.1995e8f954207f6c239a.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/vendor.5d3ac9c3b3a1079510f1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/vendor.5d3ac9c3b3a1079510f1.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/MainRetention.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainRetention.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -29,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/MainRetention.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2014">
-              <caret line="159" column="16" lean-forward="true" selection-start-line="159" selection-start-column="16" selection-end-line="159" selection-end-column="16" />
+            <state relative-caret-position="357">
+              <caret line="656" column="39" selection-start-line="656" selection-start-column="39" selection-end-line="656" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#el-form-item#0;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-form-item#1;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -151,8 +140,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="123" />
-    <option name="y" value="9" />
+    <option name="x" value="281" />
+    <option name="y" value="23" />
     <option name="width" value="1451" />
     <option name="height" value="911" />
   </component>
@@ -311,11 +300,12 @@
       <workItem from="1550133971026" duration="380000" />
       <workItem from="1550135165523" duration="1302000" />
       <workItem from="1550137262954" duration="560000" />
+      <workItem from="1550138700546" duration="26000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="221760000" />
+    <option name="totallyTimeSpent" value="221786000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -327,7 +317,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="123" y="9" width="1451" height="911" extended-state="0" />
+    <frame x="281" y="23" width="1451" height="911" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20594479" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -343,7 +334,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50374913" side_tool="true" weight="0.21875" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4935242" visible="true" weight="0.3408788" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4935242" visible="true" weight="0.33954728" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -459,17 +450,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="380">
             <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -598,8 +589,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/MainRetention.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2014">
-          <caret line="159" column="16" lean-forward="true" selection-start-line="159" selection-start-column="16" selection-end-line="159" selection-end-column="16" />
+        <state relative-caret-position="357">
+          <caret line="656" column="39" selection-start-line="656" selection-start-column="39" selection-end-line="656" selection-end-column="39" />
           <folding>
             <element signature="n#style#0;n#el-form-item#0;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#el-form-item#1;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />

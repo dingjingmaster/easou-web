@@ -653,8 +653,8 @@ export default {
         {label: '七日留存量', name: 'valWk7'}
       ],
       queryLastnum: [
-        {label: '昨天阅读量', name: 'valLastDay'},
-        {label: '上周阅读量', name: 'valLastWeek'}
+        {label: '昨天阅读量', name: 'valDay'},
+        {label: '上周阅读量', name: 'valWeek'}
       ]
     }
   }
