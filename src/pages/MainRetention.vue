@@ -161,7 +161,7 @@
     </div>
     <!-- 图片展示 -->
     <div id="main-retention-show" style="width: 100%; height: calc(86vh); margin: 20px 16px"></div>
-    <div style="width:100%; height: 120px;"></div>
+    <div style="width:98%; height: 100px;"></div>
   </div>
 </template>
 
