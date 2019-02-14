@@ -159,7 +159,7 @@ import RequestLineChart from '@/api/RequestLineChart'
 import Highcharts from 'highcharts'
 require('highcharts/modules/exporting')(Highcharts)
 export default {
-  name: 'MainRetentionRate',
+  name: 'MainRetention',
   components: {
     RequestLineChart
   },
