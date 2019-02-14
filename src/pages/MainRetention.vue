@@ -101,6 +101,8 @@
                       :label="2">比例查询</el-radio>
             <el-radio style="width:126px;margin:0;padding: 0;"
                       :label="1">留存量查询</el-radio>
+            <el-radio style="width:126px;margin:0;padding: 0;"
+                      :label="3">上段时间阅读量查询</el-radio>
           </el-radio-group>
         </el-form-item>
         <!-- 查询指标 -->
@@ -121,6 +123,16 @@
               style="width:126px;margin:0;padding: 0;"
               v-for="item in queryRate"
               :key="item.name"
+              :label="item.label">
+            </el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+        <el-form-item v-if="lastnumTarget" style="margin-bottom:6px;" label="查询指标">
+          <el-checkbox-group v-model="form.queryLastnum">
+            <el-checkbox
+              style="width:126px;margin:0;padding: 0;"
+              v-for="item in queryLastnum"
+              :key="item.label"
               :label="item.label">
             </el-checkbox>
           </el-checkbox-group>
@@ -348,7 +360,7 @@ export default {
       }
       /* 查询目标 */
       request['target'] = []
-      if (this.form.queryNum.length <= 0 && this.form.queryRate.length <= 0) {
+      if (this.form.queryNum.length <= 0 && this.form.queryRate.length <= 0 && this.form.queryLastnum.length <= 0) {
         flag = false
         this.$alert('！查询目标 是否选中', '提示', {confirmButtonText: '确定'})
       } else if (this.numRate === 2) {
@@ -367,6 +379,16 @@ export default {
           for (j = 0; j < this.queryNum.length; ++j) {
             if (this.queryNum[j].label === this.form.queryNum[i]) {
               request['target'].push(this.queryNum[j].name)
+              break
+            }
+          }
+        }
+      } else if (this.numRate === 3) {
+        request['types'] = 'lastNum'
+        for (i = 0; i < this.form.queryLastnum.length; ++i) {
+          for (j = 0; j < this.queryLastnum.length; ++j) {
+            if (this.queryLastnum[j].label === this.form.queryLastnum[i]) {
+              request['target'].push(this.queryLastnum[j].name)
               break
             }
           }
@@ -451,13 +473,23 @@ export default {
         case 1 :
           this.numTarget = true
           this.rateTarget = false
+          this.lastnumTarget = false
           this.form.queryRate = []
+          this.form.queryLastnum = []
           break
         case 2 :
           this.numTarget = false
           this.rateTarget = true
+          this.lastnumTarget = false
           this.form.queryNum = []
+          this.form.queryLastnum = []
           break
+        case 3 :
+          this.numTarget = false
+          this.rateTarget = false
+          this.lastnumTarget = true
+          this.form.queryRate = []
+          this.form.queryNum = []
       }
     },
     init () {
@@ -487,6 +519,7 @@ export default {
       ifFee: false,
       ifClassify1: false,
       numTarget: false,
+      lastnumTarget: false,
       rateTarget: true,
       numRate: 2,
       time_range_option: {
@@ -554,6 +587,7 @@ export default {
         classify1: [],
         queryRate: [],
         queryNum: [],
+        queryLastnum: [],
         timeRange: []
       },
       weidu: [
@@ -617,6 +651,10 @@ export default {
         {label: '天留存量', name: 'valDay'},
         {label: '周留存量', name: 'valWeek'},
         {label: '七日留存量', name: 'valWk7'}
+      ],
+      queryLastnum: [
+        {label: '昨天阅读量', name: 'valLastDay'},
+        {label: '上周阅读量', name: 'valLastWeek'}
       ]
     }
   }
