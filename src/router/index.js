@@ -3,8 +3,7 @@ import Router from 'vue-router'
 import MainRetention from '@/pages/MainRetention'
 import MainIndex from '@/pages/MainIndex'
 import MainExhibit from '@/pages/MainExhibit'
-import MainUserTypeRate from '@/pages/MainUserTypeRate'
-import MainUserTypeNum from '@/pages/MainUserTypeNum'
+import MainUserType from '@/pages/MainUserType'
 
 Vue.use(Router)
 
@@ -16,7 +15,7 @@ export default new Router({
       component: MainIndex
     },
     {
-      path: '/main_retention_rate/',
+      path: '/main_retention/',
       name: 'MainRetention',
       component: MainRetention
     },
@@ -26,14 +25,9 @@ export default new Router({
       component: MainExhibit
     },
     {
-      path: '/main_user_type_rate/',
-      name: 'MainUserTypeRate',
-      component: MainUserTypeRate
-    },
-    {
-      path: '/main_user_type_num/',
-      name: 'MainUserTypeNum',
-      component: MainUserTypeNum
+      path: '/main_user_type/',
+      name: 'MainUserType',
+      component: MainUserType
     }
   ]
 })

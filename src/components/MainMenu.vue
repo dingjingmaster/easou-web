@@ -22,17 +22,13 @@
         <i class="el-icon-location"></i>
         <span>阅读相关统计</span>
       </template>
-      <el-menu-item-group index="3-1">
-        <!--<template slot="title">留存统计</template>-->
-        <router-link to="/main_retention_rate/"><el-menu-item index="3-1-1">留存相关统计</el-menu-item></router-link>
-        <!--<router-link to="/main_retention_rate/"><el-menu-item index="3-1-2">留存率</el-menu-item></router-link>-->
-      </el-menu-item-group>
+      <router-link to="/main_retention/"><el-menu-item index="3-1">留存相关统计</el-menu-item></router-link>
       <!-- -->
-      <el-menu-item-group title="3-2">
-        <template slot="title">天阅读统计</template>
-        <el-menu-item index="3-2-2">天阅读量</el-menu-item>
-        <el-menu-item index="3-2-1">天付费阅读量</el-menu-item>
-      </el-menu-item-group>
+      <!--<el-menu-item-group title="3-2">-->
+        <!--<template slot="title">天阅读统计</template>-->
+        <!--<el-menu-item index="3-2-2">天阅读量</el-menu-item>-->
+        <!--<el-menu-item index="3-2-1">天付费阅读量</el-menu-item>-->
+      <!--</el-menu-item-group>-->
     </el-submenu>
     <!-- 导航2 -- 结束 -->
     <!-- -->
@@ -42,8 +38,7 @@
         <i class="el-icon-location"></i>
         <span>用户类型统计</span>
       </template>
-      <router-link to="/main_user_type_rate/"><el-menu-item index="4-1">用户类型占比</el-menu-item></router-link>
-      <router-link to="/main_user_type_num/"><el-menu-item index="4-2">用户类型数量</el-menu-item></router-link>
+      <router-link to="/main_user_type/"><el-menu-item index="4-1">用户类型相关统计</el-menu-item></router-link>
     </el-submenu>
     <!-- 导航3 -- 结束 -->
     <!-- -->
