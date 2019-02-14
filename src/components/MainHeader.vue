@@ -3,18 +3,18 @@
     <!-- 标题 -->
     <div class="i-main-title"><h2>宜搜信息查询（相关性组）</h2></div>
     <!-- 搜索框 -->
-    <div class="i-main-search">
-      <div style="margin-top:19px;">
-        <el-input placeholder="物品信息查找 ..." v-model="itemSearch" class="input-with-select">
-          <el-select v-model="select" slot="prepend" placeholder="维度" value="">
-            <el-option label="书籍ID" value="1"></el-option>
-            <el-option label="书籍名" value="2"></el-option>
-            <el-option label="作者名" value="3"></el-option>
-          </el-select>
-          <el-button slot="append" icon="el-icon-search"></el-button>
-        </el-input>
-      </div>
-    </div>
+    <!--<div class="i-main-search">-->
+      <!--<div style="margin-top:19px;">-->
+        <!--<el-input placeholder="物品信息查找 ..." v-model="itemSearch" class="input-with-select">-->
+          <!--<el-select v-model="select" slot="prepend" placeholder="维度" value="">-->
+            <!--<el-option label="书籍ID" value="1"></el-option>-->
+            <!--<el-option label="书籍名" value="2"></el-option>-->
+            <!--<el-option label="作者名" value="3"></el-option>-->
+          <!--</el-select>-->
+          <!--<el-button slot="append" icon="el-icon-search"></el-button>-->
+        <!--</el-input>-->
+      <!--</div>-->
+    <!--</div>-->
     <div class="clear"></div>
     <hr style="width:100%;height:1px;margin-top:16px;border:none;background-color:#E0E0E0;">
   </div>
