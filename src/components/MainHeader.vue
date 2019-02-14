@@ -1,7 +1,7 @@
 <template>
   <div class="i-main">
     <!-- 标题 -->
-    <div class="i-main-title"><h2>宜搜信息查询</h2></div>
+    <div class="i-main-title"><h2>宜搜信息查询（相关性组）</h2></div>
     <!-- 搜索框 -->
     <div class="i-main-search">
       <div style="margin-top:19px;">
@@ -42,7 +42,7 @@ export default {
     background-color: #FFFFFF;
   }
   .i-main-title {
-    width: 158px;
+    width: 358px;
     margin-top: 28px;
     margin-left: 86px;
     float: left;

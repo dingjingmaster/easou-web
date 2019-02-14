@@ -396,7 +396,6 @@ export default {
               tmp['data'] = info['Y']
               y.push(tmp)
             }
-            // const formNumTargetType = this.formNumTargetType
             Highcharts.chart('main-exhibit-show', {
               chart: {
                 type: 'line'

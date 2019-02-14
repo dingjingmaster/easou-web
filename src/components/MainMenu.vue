@@ -23,9 +23,9 @@
         <span>阅读相关统计</span>
       </template>
       <el-menu-item-group index="3-1">
-        <template slot="title">留存统计</template>
-        <router-link to="/main_retention_rate/"><el-menu-item index="3-1-1">留存量</el-menu-item></router-link>
-        <router-link to="/main_retention_rate/"><el-menu-item index="3-1-2">留存率</el-menu-item></router-link>
+        <!--<template slot="title">留存统计</template>-->
+        <router-link to="/main_retention_rate/"><el-menu-item index="3-1-1">留存相关统计</el-menu-item></router-link>
+        <!--<router-link to="/main_retention_rate/"><el-menu-item index="3-1-2">留存率</el-menu-item></router-link>-->
       </el-menu-item-group>
       <!-- -->
       <el-menu-item-group title="3-2">
