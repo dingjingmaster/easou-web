@@ -4,6 +4,7 @@ import MainRetention from '@/pages/MainRetention'
 import MainIndex from '@/pages/MainIndex'
 import MainExhibit from '@/pages/MainExhibit'
 import MainUserType from '@/pages/MainUserType'
+import MainSearch from '@/pages/MainSearch'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/main_user_type/',
       name: 'MainUserType',
       component: MainUserType
+    },
+    {
+      path: '/search/',
+      name: 'MainSearch',
+      component: MainSearch
     }
   ]
 })
