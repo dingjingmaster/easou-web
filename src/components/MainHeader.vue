@@ -72,6 +72,8 @@ export default {
           request['value'] = [this.itemSearch.trim()]
           break
       }
+
+      var result = []
       axios({
         url: 'http://10.26.24.87:32000/search_item',
         method: 'post',
@@ -83,7 +85,7 @@ export default {
         const obj = response.data
         if ((response.status === 200) && (obj['Status'] === true)) {
           var js = obj['Data']
-          this.queryResult = js
+          result = js
           bus.$emit('item', js)
           window.location.href = 'http://10.26.24.87:32000/#/search/'
         } else {
@@ -94,6 +96,7 @@ export default {
         console.log(error)
         // alert('没有查询到！\n除了gid,其它不支持多个查询,gid须以 \'i_\' 开头,中间以 \';\' 分割', '提示', {confirmButtonText: '确定'})
       })
+      this.queryResult = result
     }
   },
   destroyed () {
