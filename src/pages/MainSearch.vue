@@ -18,7 +18,8 @@
         border
         :data="searchItemResult"
         style="width: 100%"
-        max-height="850">
+        height="800px"
+        max-height="1200">
         <!-- 书籍ID -->
         <el-table-column
           fixed

@@ -40,15 +40,35 @@ export default {
       switch (this.select) {
         case '1':
           request['reqType'] = 'gid'
-          request['value'] = this.itemSearch.split(';')
+          var canSplit = true
+          var arr = this.itemSearch.split(';')
+          if (arr.length >= 2) {
+            canSplit = false
+          }
+          if (canSplit) {
+            arr = this.itemSearch.split(',')
+            if (arr.length >= 2) {
+              canSplit = false
+            }
+          }
+          if (canSplit) {
+            arr = this.itemSearch.split(' ')
+            if (arr.length >= 2) {
+              canSplit = false
+            }
+          }
+          request['value'] = []
+          for (var i = 0; i < arr.length; i++) {
+            request['value'].append(arr[i].trim())
+          }
           break
         case '2':
           request['reqType'] = 'name'
-          request['value'] = [this.itemSearch]
+          request['value'] = [this.itemSearch.trim()]
           break
         case '3':
           request['reqType'] = 'author'
-          request['value'] = [this.itemSearch]
+          request['value'] = [this.itemSearch.trim()]
           break
       }
       axios({
