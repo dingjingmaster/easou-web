@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="749d1492-7b02-43e2-b785-0fe7041ef49e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/Bus.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/css/app.c6852084d3143c6d9e7ae365c1ccefc9.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/css/app.c6852084d3143c6d9e7ae365c1ccefc9.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/fonts/element-icons.6f0a763.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/app.0e7be173c62ad3914ab7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/app.0e7be173c62ad3914ab7.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/vendor.5d3ac9c3b3a1079510f1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/vendor.5d3ac9c3b3a1079510f1.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainHeader.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/MainSearch.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainSearch.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -28,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/MainSearch.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3648">
-              <caret line="192" selection-start-line="192" selection-end-line="193" />
+            <state relative-caret-position="123">
+              <caret line="261" column="27" lean-forward="true" selection-start-line="261" selection-start-column="27" selection-end-line="261" selection-end-column="27" />
               <folding>
                 <element signature="n#style#0;n#el-checkbox#0;n#el-checkbox-group#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -51,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/MainHeader.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="65" column="58" selection-start-line="65" selection-start-column="58" selection-end-line="65" selection-end-column="58" />
+            <state relative-caret-position="352">
+              <caret line="67" column="31" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="31" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-select#0;n#el-input#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -163,14 +151,14 @@
         <option value="$PROJECT_DIR$/src/pages/MainExhibit.vue" />
         <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/src/api/Bus.js" />
-        <option value="$PROJECT_DIR$/src/pages/MainSearch.vue" />
         <option value="$PROJECT_DIR$/src/components/MainHeader.vue" />
+        <option value="$PROJECT_DIR$/src/pages/MainSearch.vue" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="361" />
-    <option name="y" value="21" />
+    <option name="x" value="373" />
+    <option name="y" value="41" />
     <option name="width" value="1451" />
     <option name="height" value="952" />
   </component>
@@ -331,12 +319,13 @@
       <workItem from="1550221219340" duration="419000" />
       <workItem from="1550714635436" duration="5487000" />
       <workItem from="1550735829268" duration="11047000" />
-      <workItem from="1550800168338" duration="8562000" />
+      <workItem from="1550800168338" duration="8671000" />
+      <workItem from="1550819048218" duration="408000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250166000" />
+    <option name="totallyTimeSpent" value="250683000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -348,16 +337,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="361" y="21" width="1451" height="952" extended-state="0" />
+    <frame x="373" y="41" width="1451" height="952" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20594479" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20594479" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32998326" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49327672" weight="0.2550505" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49327672" visible="true" weight="0.2550505" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997114" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -365,7 +354,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5081387" side_tool="true" weight="0.33838382" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49186128" visible="true" weight="0.26641414" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49186128" weight="0.26641414" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -632,14 +621,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/MainSearch.vue">
+    <entry file="file://$PROJECT_DIR$/src/components/MainHeader.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3648">
-          <caret line="192" selection-start-line="192" selection-end-line="193" />
+        <state relative-caret-position="352">
+          <caret line="67" column="31" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="31" />
           <folding>
-            <element signature="n#style#0;n#el-checkbox#0;n#el-checkbox-group#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-select#0;n#el-input#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#hr#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -662,14 +651,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/MainHeader.vue">
+    <entry file="file://$PROJECT_DIR$/src/pages/MainSearch.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="65" column="58" selection-start-line="65" selection-start-column="58" selection-end-line="65" selection-end-column="58" />
+        <state relative-caret-position="123">
+          <caret line="261" column="27" lean-forward="true" selection-start-line="261" selection-start-column="27" selection-end-line="261" selection-end-column="27" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-select#0;n#el-input#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-checkbox#0;n#el-checkbox-group#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

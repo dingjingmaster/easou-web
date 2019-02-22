@@ -2,8 +2,9 @@
   <div id="i-search">
     <h2>书籍查询结果</h2>
     <br/>
-    <h4>选择要展示字段</h4>
-    <el-checkbox-group v-model="itemField" v-on:change="change">
+    <p v-show="!hasResult">没有找到要查询的书籍</p>
+    <h4 v-show="hasResult">选择要展示字段</h4>
+    <el-checkbox-group v-model="itemField" v-on:change="change" v-show="hasResult">
       <el-checkbox
         style="width:138px;margin:5px 0;padding:0;"
         v-for="item in field"
@@ -12,7 +13,7 @@
       </el-checkbox>
     </el-checkbox-group>
     <br/>
-    <div>
+    <div v-show="hasResult">
       <el-table
         border
         :data="searchItemResult"
@@ -258,6 +259,7 @@ export default {
   created () {
     bus.$on('item', (r) => {
       this.searchItemResult = r // .searchItemResult = r
+      this.hasResult = r.length > 0
     })
   },
   watch: {
@@ -309,6 +311,7 @@ export default {
         {name: 'rn_w', label: '周阅读量'},
         {name: 'rt_w', label: '周留存率'}
       ],
+      hasResult: false,
       responseData: [],
       searchItemResult: [],
       normNameShow: true,
