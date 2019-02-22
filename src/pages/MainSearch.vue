@@ -167,7 +167,7 @@
 </template>
 
 <script>
-// import bus from '@/api/Bus'
+import bus from '@/api/Bus'
 export default {
   name: 'MainSearch',
   methods: {
@@ -257,8 +257,8 @@ export default {
       }
     }
   },
-  created () {
-    this.bus.$on('item', (r) => {
+  computed () {
+    bus.$on('item', (r) => {
       this.searchItemResult = r // .searchItemResult = r
       this.hasResult = r.length > 0
     })

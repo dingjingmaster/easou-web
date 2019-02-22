@@ -8,16 +8,12 @@ import 'element-ui/lib/theme-chalk/index.css'
 import ElementUI from 'element-ui'
 
 import 'babel-polyfill'
-
-const bus = new Vue()
-export default bus
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  data: {bus},
   router,
   template: '<App/>',
   components: { App }

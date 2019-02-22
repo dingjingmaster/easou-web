@@ -21,7 +21,7 @@
 </template>
 <script>
 import axios from 'axios'
-// import bus from '@/api/Bus'
+import bus from '@/api/Bus'
 export default {
   data () {
     return {
@@ -82,7 +82,7 @@ export default {
         const obj = response.data
         if ((response.status === 200) && (obj['Status'] === true)) {
           var js = obj['Data']
-          this.bus.$emit('item', js)
+          bus.$emit('item', js)
           window.location.href = 'http://10.26.24.87:32000/#/search/'
         } else {
           console.log('返回状态错误')
