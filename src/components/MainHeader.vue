@@ -83,12 +83,12 @@ export default {
         const obj = response.data
         if ((response.status === 200) && (obj['Status'] === true)) {
           var js = obj['Data']
-          bus.$emit('item', js)
           this.result = js
+          bus.$emit('item', js)
           window.location.href = 'http://10.26.24.87:32000/#/search/'
         } else {
           console.log('返回状态错误')
-          // alert('没有查询到！', '提示', {confirmButtonText: '确定'})
+          this.$alert('没有查询到！', '提示', {confirmButtonText: '确定'})
         }
       }).catch(function (error) {
         console.log(error)
