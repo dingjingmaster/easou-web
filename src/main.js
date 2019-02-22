@@ -9,12 +9,14 @@ import ElementUI from 'element-ui'
 
 import 'babel-polyfill'
 
+const Bus = new Vue()
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  data: Bus,
   router,
   template: '<App/>',
   components: { App }
