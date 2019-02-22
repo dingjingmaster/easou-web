@@ -86,6 +86,7 @@ export default {
         if ((response.status === 200) && (obj['Status'] === true)) {
           var js = obj['Data']
           result = js
+          this.queryResult = js
           bus.$emit('item', js)
           window.location.href = 'http://10.26.24.87:32000/#/search/'
         } else {
