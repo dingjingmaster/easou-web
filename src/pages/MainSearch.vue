@@ -258,7 +258,7 @@ export default {
     }
   },
   created () {
-    this.$root.Bus.$on('item', (r) => {
+    this.Bus.$on('item', (r) => {
       this.searchItemResult = r // .searchItemResult = r
       this.hasResult = r.length > 0
     })
