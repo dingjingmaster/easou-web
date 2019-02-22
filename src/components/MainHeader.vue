@@ -86,9 +86,7 @@ export default {
         if ((response.status === 200) && (obj['Status'] === true)) {
           var js = obj['Data']
           result = js
-          this.queryResult = js
           bus.$emit('item', js)
-          window.location.href = 'http://10.26.24.87:32000/#/search/'
         } else {
           console.log('返回状态错误')
           this.$alert('没有查询到！', '提示', {confirmButtonText: '确定'})
@@ -98,6 +96,7 @@ export default {
         // alert('没有查询到！\n除了gid,其它不支持多个查询,gid须以 \'i_\' 开头,中间以 \';\' 分割', '提示', {confirmButtonText: '确定'})
       })
       this.queryResult = result
+      window.location.href = 'http://10.26.24.87:32000/#/search/'
     }
   },
   destroyed () {
