@@ -59,7 +59,7 @@ export default {
           }
           request['value'] = []
           for (var i = 0; i < arr.length; i++) {
-            request['value'].append(arr[i].trim())
+            request['value'][i] = arr[i].trim()
           }
           break
         case '2':
