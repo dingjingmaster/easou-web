@@ -16,7 +16,7 @@ Vue.use(ElementUI)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  data: Bus,
+  data: {Bus},
   router,
   template: '<App/>',
   components: { App }
