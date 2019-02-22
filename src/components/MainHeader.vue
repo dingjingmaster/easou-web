@@ -27,7 +27,7 @@ export default {
     return {
       itemSearch: '',
       select: '1',
-      result: []
+      queryResult: []
     }
   },
   methods: {
@@ -83,7 +83,7 @@ export default {
         const obj = response.data
         if ((response.status === 200) && (obj['Status'] === true)) {
           var js = obj['Data']
-          this.result = js
+          this.queryResult = js
           bus.$emit('item', js)
           window.location.href = 'http://10.26.24.87:32000/#/search/'
         } else {
@@ -97,7 +97,7 @@ export default {
     }
   },
   destroyed () {
-    bus.$emit('item', this.result)
+    bus.$emit('item', this.queryResult)
   }
 }
 </script>
