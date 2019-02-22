@@ -3,7 +3,7 @@
     <h2>书籍查询结果</h2>
     <br/>
     <h4>选择要展示字段</h4>
-    <el-checkbox-group v-model="itemField">
+    <el-checkbox-group v-model="itemField" v-on:change="change">
       <el-checkbox
         style="width:138px;margin:5px 0;padding:0;"
         v-for="item in field"
@@ -17,50 +17,50 @@
         border
         :data="searchItemResult"
         style="width: 100%"
-        height="850">
+        max-height="850">
         <!-- 书籍ID -->
         <el-table-column
           fixed
           prop="gid"
           label="书籍ID"
-          width="130px">
+          width="120px">
         </el-table-column>
         <!-- 书名 -->
         <el-table-column
           fixed
           prop="name"
           label="书名"
-          width="180px">
+          width="160px">
         </el-table-column>
         <el-table-column
           fixed
           prop="author"
           label="作者名"
-          width="180px">
+          width="160px">
         </el-table-column>
         <el-table-column
           v-if="normNameShow"
           prop="norm_name"
           label="归一化书名"
-          width="180px">
+          width="160px">
         </el-table-column>
         <el-table-column
           v-if="normAuthorShow"
           prop="norm_author"
           label="归一化作者名"
-          width="180px">
+          width="160px">
         </el-table-column>
         <el-table-column
           v-if="normSeriesShow"
           prop="norm_series"
           label="归一化系列名"
-          width="180px">
+          width="160px">
         </el-table-column>
         <el-table-column
           v-if="rankShow"
           prop="rank"
           label="质量打分"
-          width="120px">
+          width="90px">
         </el-table-column>
         <el-table-column
           v-if="tag1Show"
@@ -78,25 +78,25 @@
           v-if="viewCountShow"
           prop="view_count"
           label="历史累计订阅量"
-          width="160px">
+          width="90px">
         </el-table-column>
         <el-table-column
           v-if="statusShow"
           prop="status"
           label="连载/完结"
-          width="160px">
+          width="90px">
         </el-table-column>
         <el-table-column
           v-if="feeFlagShow"
           prop="fee_flag"
           label="付费类型"
-          width="160px">
+          width="90px">
         </el-table-column>
         <el-table-column
           v-if="ncpShow"
           prop="ncp"
           label="cp名"
-          width="160px">
+          width="90px">
         </el-table-column>
         <el-table-column
           v-if="intimeShow"
@@ -112,7 +112,7 @@
         </el-table-column>
         <el-table-column
           v-if="maskLevelShow"
-          prop="make_level"
+          prop="mask_level"
           label="是否屏蔽"
           width="160px">
         </el-table-column>
@@ -132,31 +132,31 @@
           v-if="rndShow"
           prop="rn_d"
           label="天阅读量"
-          width="160px">
+          width="90px">
         </el-table-column>
         <el-table-column
           v-if="rtdShow"
           prop="rt_d"
           label="天留存率"
-          width="160px">
+          width="90px">
         </el-table-column>
         <el-table-column
           v-if="rnwShow"
           prop="rn_w"
           label="周订阅量"
-          width="160px">
+          width="90px">
         </el-table-column>
         <el-table-column
           v-if="rtwShow"
           prop="rt_w"
           label="周留存率"
-          width="160px">
+          width="90px">
         </el-table-column>
         <el-table-column
           fixed
           prop="update_time"
           label="书籍信息更新时间"
-          width="160px">
+          width="140px">
         </el-table-column>
       </el-table>
     </div>
@@ -165,8 +165,106 @@
 </template>
 
 <script>
+import bus from '@/api/Bus'
 export default {
   name: 'MainSearch',
+  methods: {
+    init () {
+      this.normNameShow = false
+      this.normAuthorShow = false
+      this.normSeriesShow = false
+      this.rankShow = false
+      this.tag1Show = false
+      this.tag2Show = false
+      this.viewCountShow = false
+      this.statusShow = false
+      this.feeFlagShow = false
+      this.ncpShow = false
+      this.intimeShow = false
+      this.uptimeShow = false
+      this.maskLevelShow = false
+      this.byShow = false
+      this.tfShow = false
+      this.rndShow = false
+      this.rtdShow = false
+      this.rnwShow = false
+      this.rtwShow = false
+    },
+    change () {
+      this.init()
+      for (var i = 0; i < this.itemField.length; i++) {
+        switch (this.itemField[i]) {
+          case '归一化书名':
+            this.normNameShow = true
+            break
+          case '归一化作者名':
+            this.normAuthorShow = true
+            break
+          case '归一化系列名':
+            this.normSeriesShow = true
+            break
+          case '质量打分':
+            this.rankShow = true
+            break
+          case '标签1':
+            this.tag1Show = true
+            break
+          case '标签2':
+            this.tag2Show = true
+            break
+          case '历史累计订阅量':
+            this.viewCountShow = true
+            break
+          case '连载/完结状态':
+            this.statusShow = true
+            break
+          case '是否付费':
+            this.feeFlagShow = true
+            break
+          case 'cp名':
+            this.ncpShow = true
+            break
+          case '入库时间':
+            this.intimeShow = true
+            break
+          case '更新时间':
+            this.uptimeShow = true
+            break
+          case '是否屏蔽':
+            this.maskLevelShow = true
+            break
+          case '是否包月':
+            this.byShow = true
+            break
+          case '是否限免':
+            this.tfShow = true
+            break
+          case '天阅读量':
+            this.rndShow = true
+            break
+          case '天留存率':
+            this.rtdShow = true
+            break
+          case '周阅读量':
+            this.rnwShow = true
+            break
+          case '周留存率':
+            this.rtwShow = true
+            break
+        }
+      }
+    }
+  },
+  created () {
+    bus.$on('item', (r) => {
+      this.searchItemResult = r // .searchItemResult = r
+    })
+  },
+  watch: {
+    responseData (val) {
+      this.searchItemResult = val
+    }
+  },
   data: function () {
     return {
       itemField: [
@@ -211,9 +309,8 @@ export default {
         {name: 'rn_w', label: '周阅读量'},
         {name: 'rt_w', label: '周留存率'}
       ],
-      searchItemResult: [
-        {gid: 'i_10000'}
-      ],
+      responseData: [],
+      searchItemResult: [],
       normNameShow: true,
       normAuthorShow: true,
       normSeriesShow: true,

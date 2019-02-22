@@ -6,7 +6,7 @@
     <div class="i-main-search">
       <div style="margin-top:19px;">
         <el-input placeholder="物品信息查找 ..." v-model="itemSearch" class="input-with-select">
-          <el-select v-model="select" slot="prepend" placeholder="维度" value="">
+          <el-select v-model="select" slot="prepend" placeholder="维度" value="" style="width:100px;">
             <el-option label="书籍ID" value="1"></el-option>
             <el-option label="书籍名" value="2"></el-option>
             <el-option label="作者名" value="3"></el-option>
@@ -20,6 +20,8 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
+import bus from '@/api/Bus'
 export default {
   data () {
     return {
@@ -29,8 +31,46 @@ export default {
   },
   methods: {
     search_item () {
-      alert('测试')
-      window.location.href = 'http://127.0.0.1:8080/#/search/'
+      var request = {}
+      request['reqType'] = ''
+      request['value'] = []
+      if (this.itemSearch === '') {
+        return
+      }
+      switch (this.select) {
+        case '1':
+          request['reqType'] = 'gid'
+          request['value'] = this.itemSearch.split(';')
+          break
+        case '2':
+          request['reqType'] = 'name'
+          request['value'] = [this.itemSearch]
+          break
+        case '3':
+          request['reqType'] = 'author'
+          request['value'] = [this.itemSearch]
+          break
+      }
+      axios({
+        url: 'http://10.26.24.87:32000/search_item',
+        method: 'post',
+        data: request,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        }
+      }).then(function (response) {
+        const obj = response.data
+        if ((response.status === 200) && (obj['Status'] === true)) {
+          var js = obj['Data']
+          bus.$emit('item', js)
+          window.location.href = 'http://10.26.24.87:32000/#/search/'
+        } else {
+          console.log('返回状态错误')
+        }
+      }).catch(function (error) {
+        console.log(error)
+        alert('没有查询到！\n除了gid,其它不支持多个查询,gid须以 \'i_\' 开头,中间以 \';\' 分割', '提示', {confirmButtonText: '确定'})
+      })
     }
   }
 }
@@ -53,8 +93,8 @@ export default {
     font-family: 楷体, sans-serif;
   }
   .i-main-search{
-    width: 360px;
-    margin-right: 66px;
+    width: 380px;
+    margin-right: 40px;
     float: right;
   }
   .i-main-logo>img {
@@ -62,8 +102,20 @@ export default {
     height: 56px;
     margin: 3px 28px;
   }
-  .el-select .el-input {
-    width: 90px; /* 搜素框长度 */
+  .el-input, .el-select>.el-input--suffix {
+    width: 100px;
+  }
+  .el-input-group__prepend>input {
+    width: 200px;
+  }
+  .el-input>input .el-input--suffix{
+    width: 100px;
+  }
+  .el-input__inner {
+    width: 80px;
+  }
+  .i-main-search>div>div>input {
+    width: 218px;
   }
   .input-with-select .el-input-group__prepend {
     background-color: #fff;
