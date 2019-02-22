@@ -42,6 +42,9 @@ export default {
         case '1':
           request['reqType'] = 'gid'
           var canSplit = true
+          this.itemSearch = this.itemSearch.replace('\t', '')
+          this.itemSearch = this.itemSearch.replace('\n', '')
+          this.itemSearch = this.itemSearch.replace('\r', '')
           var arr = this.itemSearch.split(';')
           if (arr.length >= 2) {
             canSplit = false
@@ -89,11 +92,9 @@ export default {
           bus.$emit('item', js)
         } else {
           console.log('返回状态错误')
-          this.$alert('没有查询到！', '提示', {confirmButtonText: '确定'})
         }
       }).catch(function (error) {
         console.log(error)
-        // alert('没有查询到！\n除了gid,其它不支持多个查询,gid须以 \'i_\' 开头,中间以 \';\' 分割', '提示', {confirmButtonText: '确定'})
       })
       this.queryResult = result
       window.location.href = 'http://10.26.24.87:32000/#/search/'
