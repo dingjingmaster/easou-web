@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="749d1492-7b02-43e2-b785-0fe7041ef49e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/components/MainHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/MainSearch.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainSearch.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -17,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/MainSearch.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="259" column="10" selection-start-line="259" selection-start-column="10" selection-end-line="259" selection-end-column="10" />
+            <state relative-caret-position="191">
+              <caret line="261" column="14" lean-forward="true" selection-start-line="261" selection-start-column="14" selection-end-line="261" selection-end-column="14" />
               <folding>
                 <element signature="n#style#0;n#el-checkbox#0;n#el-checkbox-group#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -40,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/MainHeader.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="97" column="9" lean-forward="true" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
+            <state relative-caret-position="362">
+              <caret line="99" column="33" selection-start-line="99" selection-start-column="33" selection-end-line="99" selection-end-column="33" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-select#0;n#el-input#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -133,14 +132,14 @@
         <option value="$PROJECT_DIR$/src/pages/MainExhibit.vue" />
         <option value="$PROJECT_DIR$/src/api/Bus.js" />
         <option value="$PROJECT_DIR$/src/main.js" />
-        <option value="$PROJECT_DIR$/src/components/MainHeader.vue" />
         <option value="$PROJECT_DIR$/src/pages/MainSearch.vue" />
+        <option value="$PROJECT_DIR$/src/components/MainHeader.vue" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="733" />
-    <option name="y" value="104" />
+    <option name="x" value="108" />
+    <option name="y" value="95" />
     <option name="width" value="1451" />
     <option name="height" value="952" />
   </component>
@@ -310,12 +309,12 @@
       <workItem from="1550800168338" duration="8671000" />
       <workItem from="1550819048218" duration="766000" />
       <workItem from="1550820153581" duration="840000" />
-      <workItem from="1550821281321" duration="2979000" />
+      <workItem from="1550821281321" duration="3231000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254860000" />
+    <option name="totallyTimeSpent" value="255112000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -327,7 +326,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="737" y="200" width="1451" height="952" extended-state="0" />
+    <frame x="108" y="95" width="1451" height="952" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20594479" />
@@ -629,27 +628,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/MainSearch.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="261" column="14" lean-forward="true" selection-start-line="261" selection-start-column="14" selection-end-line="261" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#el-checkbox#0;n#el-checkbox-group#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/MainHeader.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="97" column="9" lean-forward="true" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
+        <state relative-caret-position="362">
+          <caret line="99" column="33" selection-start-line="99" selection-start-column="33" selection-end-line="99" selection-end-column="33" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#el-select#0;n#el-input#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#hr#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="e#876#901#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/MainSearch.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="259" column="10" selection-start-line="259" selection-start-column="10" selection-end-line="259" selection-end-column="10" />
-          <folding>
-            <element signature="n#style#0;n#el-checkbox#0;n#el-checkbox-group#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -257,7 +257,7 @@ export default {
       }
     }
   },
-  computed () {
+  created () {
     bus.$on('item', (r) => {
       this.searchItemResult = r // .searchItemResult = r
       this.hasResult = r.length > 0
