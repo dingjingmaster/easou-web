@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import MainRetention from '@/pages/MainRetention'
 import MainIndex from '@/pages/MainIndex'
 import MainExhibit from '@/pages/MainExhibit'
+import ItemExhibit from '@/pages/ItemExhibit'
 import MainUserType from '@/pages/MainUserType'
 import MainSearch from '@/pages/MainSearch'
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/main_exhibit/',
       name: 'MainExhibit',
       component: MainExhibit
+    },
+    {
+      path: '/item_exhibit/',
+      name: 'ItemExhibit',
+      component: ItemExhibit
     },
     {
       path: '/main_user_type/',

@@ -22,11 +22,11 @@
         <i class="el-icon-location"></i>
         <span>阅读相关统计</span>
       </template>
-      <router-link to="/main_retention/"><el-menu-item index="3-1">留存相关统计</el-menu-item></router-link>
+      <router-link to="/item_exhibit/"><el-menu-item index="3-1">书籍阅读相关统计</el-menu-item></router-link>
+      <router-link to="/main_retention/"><el-menu-item index="3-2">留存相关统计</el-menu-item></router-link>
     </el-submenu>
-    <!-- 导航2 -- 结束 -->
-    <!-- -->
     <!-- 导航3 -- 开始 -->
+    <!-- 导航4 -- 开始 -->
     <el-submenu index="4">
       <template slot="title">
         <i class="el-icon-location"></i>
@@ -34,7 +34,7 @@
       </template>
       <router-link to="/main_user_type/"><el-menu-item index="4-1">用户类型相关统计</el-menu-item></router-link>
     </el-submenu>
-    <!-- 导航3 -- 结束 -->
+    <!-- 导航4 -- 结束 -->
     <!-- -->
   </el-menu>
 </template>
