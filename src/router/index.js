@@ -27,7 +27,7 @@ export default new Router({
       component: MainExhibit
     },
     {
-      path: '/item_exhibit/',
+      path: '/read_event/',
       name: 'ItemExhibit',
       component: ItemExhibit
     },

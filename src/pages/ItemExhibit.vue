@@ -127,7 +127,7 @@
       <!-- -->
     </div>
     <!-- 图片展示 -->
-    <div id="main-exhibit-show" style="width: 100%; height: calc(86vh); margin: 20px 16px"></div>
+    <div id="read-event-show" style="width: 100%; height: calc(86vh); margin: 20px 16px"></div>
     <div style="width:100%; height: 120px;"></div>
   </div>
 </template>
@@ -401,7 +401,7 @@ export default {
               tmp['data'] = info['Y']
               y.push(tmp)
             }
-            Highcharts.chart('main-exhibit-show', {
+            Highcharts.chart('read-event-show', {
               chart: {
                 type: 'line'
               },
