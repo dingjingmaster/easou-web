@@ -3,7 +3,9 @@ import Router from 'vue-router'
 import MainRetention from '@/pages/MainRetention'
 import MainIndex from '@/pages/MainIndex'
 import MainExhibit from '@/pages/MainExhibit'
-import ItemExhibit from '@/pages/ItemExhibit'
+import ReadEventB from '@/pages/ReadEventB'
+import ReadEventC from '@/pages/ReadEventC'
+import ReadEventU from '@/pages/ReadEventU'
 import MainUserType from '@/pages/MainUserType'
 import MainSearch from '@/pages/MainSearch'
 
@@ -27,9 +29,19 @@ export default new Router({
       component: MainExhibit
     },
     {
-      path: '/read_event/',
-      name: 'ItemExhibit',
-      component: ItemExhibit
+      path: '/read_event_c/',
+      name: 'ReadEventC',
+      component: ReadEventC
+    },
+    {
+      path: '/read_event_u/',
+      name: 'ReadEventU',
+      component: ReadEventU
+    },
+    {
+      path: '/read_event_b/',
+      name: 'ReadEventB',
+      component: ReadEventB
     },
     {
       path: '/main_user_type/',

@@ -1,6 +1,6 @@
 <template>
   <div id="item-exhibit">
-    <h2>书籍阅读相关统计</h2>
+    <h2>阅读章节统计</h2>
     <br/>
     <div class="item-exhibit-chose">
       <el-form ref="form" :model="form" label-width="76px">
@@ -15,62 +15,6 @@
             </el-checkbox>
           </el-checkbox-group>
         </el-form-item>
-        <!-- -->
-        <el-form-item style="margin-bottom:6px;" label="用户级别">
-          <el-checkbox-group v-model="form.userLevel">
-            <el-checkbox
-              style="width:116px;margin:0;padding: 0;"
-              v-for="item in userLevel"
-              :key="item.label"
-              :label="item.label">
-            </el-checkbox>
-          </el-checkbox-group>
-        </el-form-item>
-        <!-- -->
-        <el-form-item style="margin-bottom:6px;" label="新旧用户">
-          <el-checkbox-group v-model="form.userNewLevel">
-            <el-checkbox
-              style="width:116px;margin:0;padding: 0;"
-              v-for="item in userNewLevel"
-              :key="item.label"
-              :label="item.label">
-            </el-checkbox>
-          </el-checkbox-group>
-        </el-form-item>
-        <!-- -->
-        <el-form-item style="margin-bottom:6px;" label="用户包月">
-          <el-checkbox-group v-model="form.userMonthLevel">
-            <el-checkbox
-              style="width:116px;margin:0;padding: 0;"
-              v-for="item in userMonthLevel"
-              :key="item.label"
-              :label="item.label">
-            </el-checkbox>
-          </el-checkbox-group>
-        </el-form-item>
-        <!-- -->
-        <el-form-item style="margin-bottom:6px;" label="用户付费">
-          <el-checkbox-group v-model="form.userFeeLevel">
-            <el-checkbox
-              style="width:116px;margin:0;padding: 0;"
-              v-for="item in userFeeLevel"
-              :key="item.label"
-              :label="item.label">
-            </el-checkbox>
-          </el-checkbox-group>
-        </el-form-item>
-        <!-- -->
-        <el-form-item style="margin-bottom:6px;" label="用户地区">
-          <el-checkbox-group v-model="form.userAreaLevel">
-            <el-checkbox
-              style="width:116px;margin:0;padding: 0;"
-              v-for="item in userAreaLevel"
-              :key="item.label"
-              :label="item.label">
-            </el-checkbox>
-          </el-checkbox-group>
-        </el-form-item>
-        <!-- -->
         <el-form-item style="margin-bottom:6px;" label="书籍状态">
           <el-checkbox-group v-model="form.itemStatus">
             <el-checkbox
@@ -138,7 +82,7 @@ import axios from 'axios'
 import Highcharts from 'highcharts'
 require('highcharts/modules/exporting')(Highcharts)
 export default {
-  name: 'ItemExhibit',
+  name: 'ReadEventB',
   components: {
     // RequestLineChart
   },
@@ -182,11 +126,6 @@ export default {
       },
       form: {
         app: ['宜搜小说'],
-        userLevel: ['全部'],
-        userNewLevel: ['全部'],
-        userMonthLevel: ['全部'],
-        userFeeLevel: ['全部'],
-        userAreaLevel: ['全部'],
         itemStatus: ['全部'],
         itemCategory: ['全部'],
         queryNum: ['书籍量']
@@ -198,41 +137,6 @@ export default {
         {label: '宜搜小说', name: 'easouApp'},
         {label: '微卷', name: 'weijuanApp'},
         {label: '其它', name: 'othApp'}
-      ],
-      userLevel: [
-        {label: '全部', name: 'allUsrLevel'},
-        {label: '普通用户', name: 'regUsrLevel'},
-        {label: '特殊用户', name: 'sphUsrLevel'},
-        {label: '其它', name: 'othUsrLevel'}
-      ],
-      userNewLevel: [
-        {label: '全部', name: 'allUsrNew'},
-        {label: '新用户', name: 'newUsrNew'},
-        {label: '老用户', name: 'oldUsrNew'},
-        {label: '其它', name: 'othUsrNew'}
-      ],
-      userMonthLevel: [
-        {label: '全部', name: 'allUsrMon'},
-        {label: '包月', name: 'monUsrMon'},
-        {label: '非包月', name: 'unMonUsrMon'},
-        {label: '其它', name: 'othUsrMon'}
-      ],
-      userFeeLevel: [
-        {label: '全部', name: 'allUsrFee'},
-        {label: '纯免费', name: 'freUsrFee'},
-        {label: '潜在付费', name: 'mybChgUsrFee'},
-        {label: '轻度付费', name: 'lgtChgUsrFee'},
-        {label: '中度付费', name: 'mdlChgUsrFee'},
-        {label: '重度付费', name: 'hghChgUsrFee'},
-        {label: '其它', name: 'othUsrFee'}
-      ],
-      userAreaLevel: [
-        {label: '全部', name: 'allArea'},
-        {label: '一类地区', name: 'oneArea'},
-        {label: '二类地区', name: 'twoArea'},
-        {label: '三类地区', name: 'trdArea'},
-        {label: '四类地区', name: 'fthArea'},
-        {label: '其它', name: 'othArea'}
       ],
       itemStatus: [
         {label: '全部', name: 'allBookStu'},
@@ -255,23 +159,13 @@ export default {
         {label: '其它', name: 'othItmCate'}
       ],
       queryNum: [
-        {label: '书籍量', name: 'itmTag'},
-        {label: '用户量', name: 'usrTag'},
-        {label: '付费章节量', name: 'chgTag'},
-        {label: '免费章节量', name: 'freTag'},
-        {label: '限免章节量', name: 'tfTag'},
-        {label: '总章节量', name: 'sumTag'}
+        {label: '书籍量', name: 'itmTag'}
       ]
     }
   },
   methods: {
     init () {
       this.form.app = ['宜搜小说']
-      this.form.userLevel = ['全部']
-      this.form.userNewLevel = ['全部']
-      this.form.userMonthLevel = ['全部']
-      this.form.userFeeLevel = ['全部']
-      this.form.userAreaLevel = ['全部']
       this.form.itemStatus = ['全部']
       this.form.itemCategory = ['全部']
       this.form.queryNum = ['书籍量']
@@ -281,16 +175,6 @@ export default {
       /* 检查选择是否全面 */
       if (this.form.app.length <= 0) {
         this.$alert('！查询app 是否选中', '提示', {confirmButtonText: '确定'})
-      } else if (this.form.userLevel.length <= 0) {
-        this.$alert('！用户级别 是否选中', '提示', {confirmButtonText: '确定'})
-      } else if (this.form.userNewLevel.length <= 0) {
-        this.$alert('！新旧用户 是否选中', '提示', {confirmButtonText: '确定'})
-      } else if (this.form.userMonthLevel.length <= 0) {
-        this.$alert('！用户包月 是否选中', '提示', {confirmButtonText: '确定'})
-      } else if (this.form.userFeeLevel.length <= 0) {
-        this.$alert('！用户付费 是否选中', '提示', {confirmButtonText: '确定'})
-      } else if (this.form.userAreaLevel.length <= 0) {
-        this.$alert('！用户地区 是否选中', '提示', {confirmButtonText: '确定'})
       } else if (this.form.itemStatus.length <= 0) {
         this.$alert('！书籍状态 是否选中', '提示', {confirmButtonText: '确定'})
       } else if (this.form.itemCategory.length <= 0) {
@@ -305,51 +189,6 @@ export default {
           for (j = 0; j < this.app.length; ++j) {
             if (this.app[j].label === this.form.app[i]) {
               request['app'].push(this.app[j].name)
-              break
-            }
-          }
-        }
-        request['userLevel'] = []
-        for (i = 0; i < this.form.userLevel.length; ++i) {
-          for (j = 0; j < this.userLevel.length; ++j) {
-            if (this.userLevel[j].label === this.form.userLevel[i]) {
-              request['userLevel'].push(this.userLevel[j].name)
-              break
-            }
-          }
-        }
-        request['userNewLevel'] = []
-        for (i = 0; i < this.form.userNewLevel.length; ++i) {
-          for (j = 0; j < this.userNewLevel.length; ++j) {
-            if (this.userNewLevel[j].label === this.form.userNewLevel[i]) {
-              request['userNewLevel'].push(this.userNewLevel[j].name)
-              break
-            }
-          }
-        }
-        request['userMonthLevel'] = []
-        for (i = 0; i < this.form.userMonthLevel.length; ++i) {
-          for (j = 0; j < this.userMonthLevel.length; ++j) {
-            if (this.userMonthLevel[j].label === this.form.userMonthLevel[i]) {
-              request['userMonthLevel'].push(this.userMonthLevel[j].name)
-              break
-            }
-          }
-        }
-        request['userFeeLevel'] = []
-        for (i = 0; i < this.form.userFeeLevel.length; ++i) {
-          for (j = 0; j < this.userFeeLevel.length; ++j) {
-            if (this.userFeeLevel[j].label === this.form.userFeeLevel[i]) {
-              request['userFeeLevel'].push(this.userFeeLevel[j].name)
-              break
-            }
-          }
-        }
-        request['userAreaLevel'] = []
-        for (i = 0; i < this.form.userAreaLevel.length; ++i) {
-          for (j = 0; j < this.userAreaLevel.length; ++j) {
-            if (this.userAreaLevel[j].label === this.form.userAreaLevel[i]) {
-              request['userAreaLevel'].push(this.userAreaLevel[j].name)
               break
             }
           }
@@ -383,7 +222,7 @@ export default {
         }
         request['timeRange'] = this.form.timeRange
         axios({
-          url: 'http://10.26.24.87:32000/read_event',
+          url: 'http://10.26.24.87:32000/read_event_b',
           method: 'post',
           data: request,
           headers: {
@@ -409,7 +248,7 @@ export default {
                 enabled: false
               },
               title: {
-                text: '书籍阅读相关统计'
+                text: '书籍量相关统计'
               },
               xAxis: {
                 categories: lines[0]['X']
