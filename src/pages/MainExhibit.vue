@@ -377,8 +377,15 @@ export default {
           }
         }
         request['timeRange'] = this.form.timeRange
+        const notify = this.$notify
+        const loading = this.$loading({
+          lock: true,
+          text: '正在查询...',
+          spinner: 'el-icon-loading',
+          background: 'rgba(0, 0, 0, 0.6)'
+        })
         axios({
-          url: 'http://10.26.24.87:32000/exhibit',
+          url: 'http://127.0.0.1/exhibit',
           method: 'post',
           data: request,
           headers: {
@@ -432,10 +439,23 @@ export default {
                 }
               }
             })
+            loading.close()
           } else {
+            loading.close()
+            notify({
+              title: '查询错误',
+              message: 'response code：' + response.status + ' 错误原因：' + obj['Error'],
+              duration: 2000
+            })
             console.log('返回状态错误')
           }
         }).catch(function (error) {
+          loading.close()
+          notify({
+            title: '查询错误',
+            message: error,
+            duration: 2000
+          })
           console.log(error)
         })
       }
@@ -494,7 +514,8 @@ export default {
         queryNum: [],
         queryRate: [],
         timeRange: [],
-        numRate: 1
+        numRate: 1,
+        loading: {}
       },
       formNumTargetType: true,
       formRateTargetType: false,
