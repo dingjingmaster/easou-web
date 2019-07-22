@@ -385,7 +385,7 @@ export default {
           background: 'rgba(0, 0, 0, 0.6)'
         })
         axios({
-          url: 'http://127.0.0.1/exhibit',
+          url: 'http://10.26.24.87::32000/exhibit',
           method: 'post',
           data: request,
           headers: {

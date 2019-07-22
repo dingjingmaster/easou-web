@@ -17,25 +17,25 @@
     </el-submenu>
     <!-- 导航2 -- 结束 -->
     <!-- 导航3 -- 开始 -->
-    <el-submenu index="3">
-      <template slot="title">
-        <i class="el-icon-location"></i>
-        <span>阅读相关统计</span>
-      </template>
-      <router-link to="/read_event_c/"><el-menu-item index="3-1">书籍阅读章节统计</el-menu-item></router-link>
-      <router-link to="/read_event_u/"><el-menu-item index="3-2">书籍阅读用户统计</el-menu-item></router-link>
-      <router-link to="/read_event_b/"><el-menu-item index="3-3">书籍阅读书籍统计</el-menu-item></router-link>
-      <router-link to="/main_retention/"><el-menu-item index="3-4">留存相关统计</el-menu-item></router-link>
-    </el-submenu>
+<!--    <el-submenu index="3">-->
+<!--      <template slot="title">-->
+<!--        <i class="el-icon-location"></i>-->
+<!--        <span>阅读相关统计</span>-->
+<!--      </template>-->
+<!--      <router-link to="/read_event_c/"><el-menu-item index="3-1">书籍阅读章节统计</el-menu-item></router-link>-->
+<!--      <router-link to="/read_event_u/"><el-menu-item index="3-2">书籍阅读用户统计</el-menu-item></router-link>-->
+<!--      <router-link to="/read_event_b/"><el-menu-item index="3-3">书籍阅读书籍统计</el-menu-item></router-link>-->
+<!--      <router-link to="/main_retention/"><el-menu-item index="3-4">留存相关统计</el-menu-item></router-link>-->
+<!--    </el-submenu>-->
     <!-- 导航3 -- 开始 -->
     <!-- 导航4 -- 开始 -->
-    <el-submenu index="4">
-      <template slot="title">
-        <i class="el-icon-location"></i>
-        <span>用户类型统计</span>
-      </template>
-      <router-link to="/main_user_type/"><el-menu-item index="4-1">用户类型相关统计</el-menu-item></router-link>
-    </el-submenu>
+<!--    <el-submenu index="4">-->
+<!--      <template slot="title">-->
+<!--        <i class="el-icon-location"></i>-->
+<!--        <span>用户类型统计</span>-->
+<!--      </template>-->
+<!--      <router-link to="/main_user_type/"><el-menu-item index="4-1">用户类型相关统计</el-menu-item></router-link>-->
+<!--    </el-submenu>-->
     <!-- 导航4 -- 结束 -->
     <!-- -->
   </el-menu>
