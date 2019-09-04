@@ -136,7 +136,7 @@
         <el-form-item v-if="formNumTargetType" style="margin-bottom:6px;" label="查询指标">
           <el-checkbox-group v-model="form.queryNum">
             <el-checkbox
-              style="width:88px;margin:0;padding: 0;"
+              style="width:126px;margin:0;padding: 0;"
               v-for="item in queryNum"
               :key="item.label"
               :label="item.label">
@@ -147,7 +147,7 @@
         <el-form-item v-if="formRateTargetType" style="margin-bottom:6px;" label="查询指标">
           <el-checkbox-group v-model="form.queryRate">
             <el-checkbox
-              style="width:88px;margin:0;padding: 0;"
+              style="width:146px;margin:0;padding: 0;"
               v-for="item in queryRate"
               :key="item.name"
               :label="item.label">
@@ -634,20 +634,33 @@ export default {
         {label: '其它', name: 'othIn'}
       ],
       queryNum: [
-        {label: '推荐量', name: 'dspNum'},
+        {label: '展现量', name: 'dspNum'},
         {label: '点击量', name: 'clkNum'},
         {label: '订阅量', name: 'srbNum'},
-        {label: '阅读量1', name: 'redNum1'},
-        {label: '阅读量2', name: 'redNum2'}
+        {label: '天阅读量', name: 'redNum1'},
+        {label: '周阅读量', name: 'redNum7'},
+        {label: '月阅读量', name: 'redNum30'},
+        {label: '天阅读章节量', name: 'redChap1'},
+        {label: '周阅读章节量', name: 'redChap7'},
+        {label: '月阅读章节量', name: 'redChap30'},
+        {label: '天收益价值', name: 'value1'},
+        {label: '周收益价值', name: 'value7'},
+        {label: '月收益价值', name: 'value30'}
       ],
       queryRate: [
         {label: '点展比', name: 'clkDsp'},
         {label: '订点比', name: 'subClk'},
         {label: '订展比', name: 'subDsp'},
-        {label: '阅订比1', name: 'redSub1'},
-        {label: '阅展比1', name: 'redDsp1'},
-        {label: '阅订比2', name: 'redSub2'},
-        {label: '阅展比2', name: 'redDsp2'}
+
+        {label: '天阅读展现比', name: 'redSub1'},
+        {label: '周阅读展现比', name: 'redDsp7'},
+        {label: '月阅读展现比', name: 'redDsp30'},
+        {label: '天阅读章节展现比', name: 'redcSub1'},
+        {label: '周阅读章节展现比', name: 'redcDsp7'},
+        {label: '月阅章章节展现比', name: 'redcDsp30'},
+        {label: '天价值展现比', name: 'valSub1'},
+        {label: '周价值展现比', name: 'valDsp7'},
+        {label: '月价值展现比', name: 'valDsp30'}
       ]
     }
   }
