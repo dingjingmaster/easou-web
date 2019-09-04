@@ -652,13 +652,13 @@ export default {
         {label: '订点比', name: 'subClk'},
         {label: '订展比', name: 'subDsp'},
 
-        {label: '天阅读展现比', name: 'redSub1'},
+        {label: '天阅读展现比', name: 'redDsp1'},
         {label: '周阅读展现比', name: 'redDsp7'},
         {label: '月阅读展现比', name: 'redDsp30'},
-        {label: '天阅读章节展现比', name: 'redcSub1'},
+        {label: '天阅读章节展现比', name: 'redcDsp1'},
         {label: '周阅读章节展现比', name: 'redcDsp7'},
         {label: '月阅章章节展现比', name: 'redcDsp30'},
-        {label: '天价值展现比', name: 'valSub1'},
+        {label: '天价值展现比', name: 'valDsp1'},
         {label: '周价值展现比', name: 'valDsp7'},
         {label: '月价值展现比', name: 'valDsp30'}
       ]
