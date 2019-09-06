@@ -638,6 +638,7 @@ export default {
         {label: '点击量', name: 'clkNum'},
         {label: '订阅量', name: 'srbNum'},
         {label: '天阅读量', name: 'redNum1'},
+
         {label: '周阅读量', name: 'redNum7'},
         {label: '月阅读量', name: 'redNum30'},
         {label: '天阅读章节量', name: 'redChap1'},
